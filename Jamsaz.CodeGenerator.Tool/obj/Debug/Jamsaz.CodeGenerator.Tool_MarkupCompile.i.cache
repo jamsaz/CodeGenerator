@@ -16,5 +16,5 @@ DEBUG;TRACE
 115473959036
 Presentaion\Views\CodeEditorDialog.xaml;Presentaion\Views\CodeGeneratorControl.xaml;Presentaion\Views\MasterFormTypeComboBoxEditorControl.xaml;Presentaion\Views\GenerateSettingModal.xaml;Presentaion\Views\MetadataSettingModal.xaml;
 
-True
+False
 
