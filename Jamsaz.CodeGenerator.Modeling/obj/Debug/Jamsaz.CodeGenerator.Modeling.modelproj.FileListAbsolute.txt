@@ -1,0 +1,7 @@
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\bin\Debug\Jamsaz.CodeGenerator.Modeling.Results.dgml
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\ApplicationDiagram.layerdiagram.dgql
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\ApplicationDiagram.layerdiagram.dgml
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\Initial.dgml
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\Initial.dgml.back
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\Validate.dgql
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\obj\Debug\Validated.dgml

@@ -1,0 +1,63 @@
+﻿<controls:Dialog x:Class="{{ProjectName}}.Modules.{{CapitalizedNameSpace}}.Views.{{SingularizedName}}EditViewDialog"
+                 {{#newline}}
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 {{#newline}}
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 {{#newline}}
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 {{#newline}}
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 {{#newline}}
+                 xmlns:controls="clr-namespace:{{ProjectName}}.Core.Controls.Dialog;assembly={{ProjectName}}.Core.Controls"
+                 {{#newline}}
+                 xmlns:gridview="clr-namespace:{{ProjectName}}.Core.Controls.GridView;assembly={{ProjectName}}.Core.Controls"
+                 {{#newline}}
+                 xmlns:formFields="clr-namespace:{{ProjectName}}.Core.Controls.FormFields;assembly={{ProjectName}}.Core.Controls"
+                 {{#newline}}
+                 xmlns:selectForm="clr-namespace:{{ProjectName}}.Core.Controls.FormFields.SelectForm;assembly={{ProjectName}}.Core.Controls"
+                 {{#newline}}
+                 xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                 {{#newline}}
+                 xmlns:prism="http://prismlibrary.com/"
+                 {{#newline}}
+                 mc:Ignorable="d"
+                 {{#newline}}
+                 SizeToContent="Height" Title="{Binding {{SingularizedName}}EditViewDialogTitle}" Name="{{SingularizedName}}EditDialog" Buttons="{Binding DialogButtons}" prism:ViewModelLocator.AutoWireViewModel="True">
+    {{#newline}}
+    <Grid>
+        {{#newline}}
+        <Grid.ColumnDefinitions>
+            {{FormColumnGrid}}
+        </Grid.ColumnDefinitions>
+        {{#newline}}
+        <Grid.RowDefinitions>
+            {{FormRowGrid}}
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        {{#newline}}
+            {{#each Properties}}
+            {{#if HasDisplayName}}
+            {{#if Visible}}
+            {{#if SelectForm}}
+            <selectForm:SelectForm Grid.Row="{{RowIndex}}" Grid.Column="{{ColumnIndex}}" LabelText="{{DisplayName}}" ItemSource="{Binding Path={{ParentObjectCapitalizedName}}Data,Mode=TwoWay}"
+                                   {{#newline}}
+                                   Columns="{Binding {{ParentObjectCapitalizedName}}Columns}" SelectedItem="{Binding {{ParentObjectCapitalizedName}},Mode=TwoWay}" DisplayMemberPath="{{Attributes}}" Visibility="{{ViewVisible}}">
+                {{#newline}}
+                <selectForm:SelectForm.FieldType>
+                    {{#newline}}
+                    <selectForm:SelectFormField FieldTypes="Form" Field="TextBox" />
+                    {{#newline}}
+                </selectForm:SelectForm.FieldType>
+                {{#newline}}
+            </selectForm:SelectForm>
+            {{#else}}
+            {{WpfField}}
+            {{#newline}}
+            {{/if}}
+            {{/if}}
+            {{/if}}
+            {{/each}}
+    </Grid>
+    {{#newline}}
+</controls:Dialog>
+{{#newline}}

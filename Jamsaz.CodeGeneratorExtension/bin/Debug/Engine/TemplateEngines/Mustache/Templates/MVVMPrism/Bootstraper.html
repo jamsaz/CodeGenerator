@@ -1,0 +1,148 @@
+﻿using System;
+{{#newline}}
+using System.Linq;
+{{#newline}}
+using System.Reflection;
+{{#newline}}
+using System.Windows;
+{{#newline}}
+using Microsoft.Practices.Unity;
+{{#newline}}
+using Prism.Events;
+{{#newline}}
+using Prism.Modularity;
+{{#newline}}
+using Prism.Regions;
+{{#newline}}
+using Prism.Unity;
+{{#newline}}
+using {{ProjectName}}.Core.Services;
+{{#newline}}
+using IRepositories = {{ProjectName}}.Repository.Interface;
+{{#newline}}
+using Repositories = {{ProjectName}}.Repository.SQL;
+{{#newline}}
+{{#newline}}
+namespace {{ProjectName}}
+{{#newline}}
+{
+{{#newline}}
+    public class Bootstrapper : UnityBootstrapper
+{{#newline}}
+    {
+{{#newline}}
+        protected override DependencyObject CreateShell()
+{{#newline}}
+        {
+{{#newline}}
+            Type shell = Configuration.CurrentShellAssembly.ExportedTypes.FirstOrDefault(x => x.Name.Equals(Configuration.Config.currentShell.name.ToString()));
+{{#newline}}
+            if (shell != null)
+{{#newline}}
+            {
+{{#newline}}
+                EventAggregatorService.SetEventAggregator(Container.TryResolve<IEventAggregator>());
+{{#newline}}
+                return (DependencyObject)Container.TryResolve(shell);
+{{#newline}}
+            }
+{{#newline}}
+            return null;
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        protected override void InitializeShell()
+{{#newline}}
+        {
+{{#newline}}
+{{#each Objects}}
+            Container.RegisterType<IRepositories.{{CapitalizedNameSpace}}.I{{SingularizedName}}Repository,Repositories.{{CapitalizedNameSpace}}.{{SingularizedName}}Repository>();
+{{#newline}}
+{{/each}}
+{{#newline}}
+            Application.Current.MainWindow.Show();
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        protected override IModuleCatalog CreateModuleCatalog()
+{{#newline}}
+        {
+{{#newline}}
+            return new DirectoryModuleCatalog { ModulePath = Configuration.CurrentPath + Configuration.Config.currentShell.modulePath };
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+{{#newline}}
+        {
+{{#newline}}
+            var mapper = base.ConfigureRegionAdapterMappings();
+{{#newline}}
+            foreach (var adapter in Configuration.Config.currentShell.adapters)
+{{#newline}}
+            {
+{{#newline}}
+                if (adapter.control.assemblyPath == null) continue;
+{{#newline}}
+                Assembly controlAssembly = Assembly.LoadFile(Configuration.CurrentPath + adapter.control.assemblyPath);
+{{#newline}}
+                var controlType = controlAssembly.ExportedTypes.FirstOrDefault(x => x.Name.Equals(adapter.control.type.ToString()));
+{{#newline}}
+                var adapterType = Configuration.CurrentShellAssembly.ExportedTypes.FirstOrDefault(x => x.Name.Equals(adapter.name.ToString()));
+{{#newline}}
+                mapper.RegisterMapping(controlType, (IRegionAdapter)Container.TryResolve(adapterType));
+{{#newline}}
+            }
+{{#newline}}
+            return mapper;
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
+{{#newline}}
+        {
+{{#newline}}
+            var behaviors = base.ConfigureDefaultRegionBehaviors();
+{{#newline}}
+            foreach (var behavior in Configuration.Config.currentShell.behaviors)
+{{#newline}}
+            {
+{{#newline}}
+                if (behavior.assemblyPath == "")
+{{#newline}}
+                {
+{{#newline}}
+                    var behaviorType = Configuration.CurrentShellAssembly.ExportedTypes.FirstOrDefault(x => x.Name.Equals(behavior.key.ToString()));
+{{#newline}}
+                    if (behaviorType != null)
+{{#newline}}
+                    {
+{{#newline}}
+                        behaviors.AddIfMissing(behavior.key.ToString(), behaviorType);
+{{#newline}}
+                    }
+{{#newline}}
+                }
+{{#newline}}
+                else
+{{#newline}}
+                {
+{{#newline}}
+                    //TODO: Behaviors Within Path
+{{#newline}}
+                }
+{{#newline}}
+            }
+{{#newline}}
+            return behaviors;
+{{#newline}}
+        }
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

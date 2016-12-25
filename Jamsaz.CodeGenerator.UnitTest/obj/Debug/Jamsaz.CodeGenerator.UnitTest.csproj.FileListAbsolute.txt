@@ -1,0 +1,14 @@
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Jamsaz.CodeGenerator.UnitTest.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Jamsaz.CodeGenerator.UnitTest.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.csprojResolveAssemblyReference.cache
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.pdb
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Jamsaz.CodeGenerator.UnitTest.dll
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Jamsaz.CodeGenerator.UnitTest.pdb
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.csprojResolveAssemblyReference.cache
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.dll
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.UnitTest\obj\Debug\Jamsaz.CodeGenerator.UnitTest.pdb

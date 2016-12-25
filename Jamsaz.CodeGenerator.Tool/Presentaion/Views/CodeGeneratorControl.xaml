@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="Jamsaz.CodeGenerator.Tool.Presentaion.Views.CodeGeneratorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:userControl ="clr-namespace:Jamsaz.CodeGenerator.Tool.Presentaion.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800"  x:Name="root">
+    <UserControl.Resources>
+        <Style x:Key="RadButtonToolTipStyle" TargetType="telerik:RadButton">
+            <!-- Predefined properties:-->
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="IsBackgroundVisible" Value="False" />
+
+            <!-- Properties you add to achieve customization (randomly chosen for the example's purpose):-->
+            <Setter Property="ToolTipService.ToolTip" Value="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+        <telerik:ToolBarContainerStyleSelector x:Key="selector">
+            <telerik:ToolBarContainerStyle TypeName="RadButton" ContainerStyle="{StaticResource RadButtonToolTipStyle}" />
+        </telerik:ToolBarContainerStyleSelector>
+        <HierarchicalDataTemplate x:Key="ObjectChildsTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Jamsaz.CodeGenerator.Tool;component/Images/developer.png" Width="24" Height="24" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" Margin="0,3,0,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="ObjectTemplate" ItemsSource="{Binding Properties}" ItemTemplate="{StaticResource ObjectChildsTemplate}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Jamsaz.CodeGenerator.Tool;component/Images/icon128.png" Width="24" Height="24" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" Margin="0,3,0,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="NamespaceTemplate"
+                                  ItemsSource="{Binding Objects}"
+                                  ItemTemplate="{StaticResource ObjectTemplate}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Jamsaz.CodeGenerator.Tool;component/Images/PropertyValueConverters.png" Width="24" Height="24" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" Margin="0,3,0,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="ProjectTemplate" 
+                                  ItemTemplate="{StaticResource NamespaceTemplate}"
+                                  ItemsSource="{Binding NameSpaces}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Jamsaz.CodeGenerator.Tool;component/Images/microsoft_visual_studio.png" Width="24" Height="24" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" Margin="0,3,0,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=LoadMetaData}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF24BAFF" Offset="0"/>
+                    <GradientStop Color="#FF1D9EDA" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <telerik:RadToolBarTray Grid.Row="0" Background="{x:Null}" Margin="2">
+                <telerik:RadToolBar Band="0" BandIndex="0">
+                    <telerik:RadButton Content="NewProject"  Command="{Binding NewProject}" Style="{StaticResource RadButtonToolTipStyle}"/>
+                    <telerik:RadButton Content="OpenProject" Command="{Binding OpenProject}" Style="{StaticResource RadButtonToolTipStyle}"/>
+                    <!--<telerik:RadButton Content="SaveChanges" Command="{Binding SaveMetaDataChanges}" Style="{StaticResource RadButtonToolTipStyle}"/>-->
+                    <telerik:RadButton Content="Close" Command="{Binding Close}" Style="{StaticResource RadButtonToolTipStyle}" Visibility="{Binding CloseVisible}"/>
+                </telerik:RadToolBar>
+                <telerik:RadToolBar Band="0" BandIndex="1">
+                    <telerik:RadButton Content="ReloadMetaData" Command="{Binding UpdateMetaData}" Style="{StaticResource RadButtonToolTipStyle}"/>
+                    <telerik:RadButton Content="GenerateCode" Command="{Binding GenerateCode}" Style="{StaticResource RadButtonToolTipStyle}"/>
+                    <telerik:RadButton Content="Setting" Command="{Binding Setting}" Style="{StaticResource RadButtonToolTipStyle}"/>
+                </telerik:RadToolBar>
+            </telerik:RadToolBarTray>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <telerik:RadTreeView Grid.Column="0" HorizontalAlignment="Left" Width="400" 
+                             ItemTemplate="{StaticResource ProjectTemplate}"
+                             ItemsSource="{Binding Path=MetaData,Mode=TwoWay}" 
+                             SelectionMode="Multiple" x:Name="RadTreeView" BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="White">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Selected">
+                            <i:InvokeCommandAction Command="{Binding SelectCommand}" CommandParameter="{Binding ElementName=RadTreeView}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </telerik:RadTreeView>
+                <Grid Grid.Column="1">
+                    <telerik:RadPropertyGrid Item="{Binding Path=SelectedItem,Mode=TwoWay}" IsGrouped="True" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

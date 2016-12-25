@@ -1,0 +1,723 @@
+﻿using Prism.Mvvm;
+{{#newline}}
+using Repositories = {{ProjectName}}.Repository.Interface;
+{{#newline}}
+using {{ProjectName}}.Core.Controls.GridView;
+{{#newline}}
+using {{ProjectName}}.Core.Controls.Dialog;
+{{#newline}}
+using Prism.Commands;
+{{#newline}}
+using System;
+{{#newline}}
+using {{ProjectName}}.Modules.{{CapitalizedNameSpace}}.Views;
+{{#newline}}
+using {{ProjectName}}.Core.Services;
+{{#newline}}
+using Prism.Events;
+{{#newline}}
+using System.Windows;
+{{#newline}}
+using System.Linq;
+{{#newline}}
+using System.Collections.ObjectModel;
+{{#newline}}
+using {{ProjectName}}.Core.Controls.FormFields.ListView;
+{{#newline}}
+using Microsoft.Practices.ObjectBuilder2;
+{{#newline}}
+{{#newline}}
+namespace {{ProjectName}}.Modules.{{CapitalizedNameSpace}}.ViewModels
+{{#newline}}
+{
+{{#newline}}
+    public class {{SingularizedName}}{{Prefix}} : BindableBase
+{{#newline}}
+    {
+{{#newline}}
+{{#each Properties}}
+{{#if ParentObjectName}}
+        protected Repositories.{{ParentObjectNameSpace}}.I{{ParentObjectSingularizedName}}Repository {{ParentObjectCapitalizedName}}Repository;
+{{#newline}}
+{{#each ParentObjectProperties}}
+{{#if ParentObjectName}}
+{{#newline}}
+        protected Repositories.{{CapitalizeNameSpace}}.I{{ParentObjectSingularizedName}}Repository {{ParentObjectCapitalizedName}}Repository;
+{{/if}}
+{{/each}}
+{{#newline}}
+{{/if}}
+{{/each}}
+        protected Repositories.{{CapitalizedNameSpace}}.I{{SingularizedName}}Repository {{CapitalizedName}}Repository;
+{{#newline}}
+{{#newline}}
+{{#if IsEdit}}
+        public Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}} CurrentObject { get; set; }
+{{/if}}
+{{#newline}}
+{{#newline}}
+        public {{SingularizedName}}{{Prefix}}(Repositories.{{CapitalizedNameSpace}}.I{{SingularizedName}}Repository {{UnCapitalizedName}}Repository{{ParentObjectRepository}})
+{{#newline}}
+        {
+{{#newline}}
+            {{UnSingularizedName}}{{Prefix}}Title = "{{DisplayName}}";
+{{#newline}}
+            {{CapitalizedName}}Repository = {{UnCapitalizedName}}Repository;
+{{#newline}}
+{{#if IsEdit}}
+            EventAggregatorService.Instance.GetEvent<PubSubEvent<Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}}>>().Subscribe((o) =>
+{{#newline}}
+            {
+{{#newline}}
+                var data = {{CapitalizedName}}Repository.GetSingle(x => x.{{PrimaryKey}} == o.{{PrimaryKey}});
+{{#newline}}
+{{#each Properties}}
+                {{Name}} = data.{{Name}};
+{{#newline}}
+{{#if EnumItems}}
+                {{Name}}EnumItems.Where(x => x.Value == data.{{Name}}.ToString()).ForEach(x => x.IsSelected = true);
+{{#newline}}
+{{/if}}
+{{#if ParentObjectCapitalizedName}}
+                {{ParentObjectCapitalizedName}} = {{ParentObjectCapitalizedName}}Repository.GetSingle(x => x.{{PrimaryKey}} == {{Name}});
+{{#newline}}
+{{/if}}
+{{/each}}
+            }, false);
+{{#newline}}
+{{/if}}
+{{#each Properties}}
+{{#if EnumItems}}
+            {{LowerSingularizedName}}EnumItems = new ObservableCollection<ListViewItem>
+{{#newline}}
+            {
+{{#newline}}
+{{#each EnumItems}}
+                new ListViewItem("{{Name}}", "{{Value}}"),
+{{#newline}}
+{{/each}}
+{{#newline}}
+            };
+{{#newline}}
+{{/if}}
+{{#if ParentObjectName}}
+            {{ParentObjectCapitalizedName}}Repository = {{ParentObjectUnCapitalizedName}}Repository;
+{{#newline}}
+{{#each ParentObjectProperties}}
+{{#if ParentObjectName}}
+            {{ParentObjectCapitalizedName}}Repository = {{ParentObjectUnCapitalizedName}}Repository;
+{{#newline}}
+{{/if}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{#if IsFormOrDialog}}
+{{#each Properties}}
+{{#if ParentObjectName}}
+            {{ParentObjectUnCapitalizedName}}Data = {{ParentObjectUnCapitalizedName}}Repository.GetAll().ToList();
+{{#newline}}
+{{#each ParentObjectProperties}}
+{{#if ParentObjectName}}
+            {{ParentObjectLowerPluralizedName}} = {{ParentObjectCapitalizedName}}Repository.GetAll().ToList();
+{{#newline}}
+{{/if}}
+{{/each}}
+{{#newline}}
+            {{ParentObjectUnCapitalizedName}}Columns = new GridViewColumnCollection
+{{#newline}}
+            {
+{{#newline}}
+{{#each ParentObjectProperties}}
+{{#if HasDisplayName}}
+{{#if InLookup}}
+{{#if HasParent}}
+                new GridViewColumn("{{DisplayName}}", "{{SingularizedName}}",{{GridColumn}})
+{{#newline}}
+                {
+{{#newline}}
+                    DisplayMemberPath = "{{Attributes}}",
+{{#newline}}
+                    SelectedValueMemberPath = "{{ParentObjectPrimaryKeyName}}",
+{{#newline}}
+                    ItemSourceBindingPath = "{{ParentObjectPluralizedName}}",
+{{#newline}}
+                    Visible = {{ParentObjectVisible}}
+{{#newline}}
+                },
+{{#else}}
+                new GridViewColumn("{{DisplayName}}", "{{SingularizedName}}",{{GridColumn}}) {Visible = {{#call 'LowercaseFirst' Visible}}},
+{{/if}}
+{{/if}}
+{{/if}}
+{{#newline}}
+{{/each}}
+            };
+{{#newline}}
+
+{{/if}}
+{{/each}}
+{{/if}}
+{{#newline}}
+{{#if IsGrid}}
+            data = {{UnCapitalizedName}}Repository.GetAll().ToList();
+{{#newline}}
+{{#each Properties}}
+{{#if ParentObjectName}}
+            {{ParentObjectLowerPluralizedName}} = {{ParentObjectCapitalizedName}}Repository.GetAll().ToList();
+{{/if}}
+{{/each}}
+{{#newline}}
+            gridSetting = new GridViewSetting
+{{#newline}}
+            {
+{{#newline}}
+                CanPaging = true,
+{{#newline}}
+                CanExport = true,
+{{#newline}}
+                CanFilter = true,
+{{#newline}}
+                CanGroup = true,
+{{#newline}}
+                CanSort = true,
+{{#newline}}
+                CanUserDeleteRows = true,
+{{#newline}}
+                CanUserInsertRows = true
+{{#newline}}
+            };
+{{#newline}}
+            columns = new GridViewColumnCollection
+{{#newline}}
+            {
+{{#newline}}
+{{#each Properties}}
+{{#if HasDisplayName}}
+{{#if InGrid}}
+{{#if IsObject}}
+                new GridViewColumn("{{DisplayName}}", "{{SingularizedName}}",{{GridColumn}})
+{{#newline}}
+                {
+{{#newline}}
+                    DisplayMemberPath = "{{Attributes}}",
+{{#newline}}
+                    SelectedValueMemberPath = "{{ParentObjectPrimaryKeyName}}",
+{{#newline}}
+                    ItemSourceBindingPath = "{{ParentObjectPluralizedName}}",
+{{#newline}}
+                    Visible = {{#call 'LowercaseFirst' Visible}}
+{{#newline}}
+                },
+{{#else}}
+{{#if EnumItems}}
+                new GridViewColumn("{{DisplayName}}", "{{SingularizedName}}",{{GridColumn}})
+{{#newline}}
+                {
+{{#newline}}
+                    DisplayMemberPath = "Content",
+{{#newline}}
+                    SelectedValueMemberPath = "Value",
+{{#newline}}
+                    ItemSourceBindingPath = "{{SingularizedName}}EnumItems",
+{{#newline}}
+                    Visible = {{#call 'LowercaseFirst' Visible}}
+{{#newline}}
+                },
+
+{{#else}}
+                new GridViewColumn("{{DisplayName}}", "{{SingularizedName}}",{{GridColumn}}) {Visible = {{#call 'LowercaseFirst' Visible}}},
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{#newline}}
+{{/each}}
+            };
+{{#newline}}
+            buttons = new GridViewButtonCollection
+{{#newline}}
+            {
+{{#newline}}
+                new GridViewButton("خروجی excel", GridViewButtonTypes.ExportGridViewButton , ((int)GridViewExportTypes.Excel).ToString()),
+{{#newline}}
+            };
+{{#newline}}
+{{#if Add}}
+            AddCommand = new DelegateCommand<object>(AddCommandMethod);
+{{#newline}}
+{{/if}}
+{{#if Edit}}
+            EditCommand = new DelegateCommand<object>(EditCommandMethod);
+{{#newline}}
+{{/if}}
+{{#if Delete}}
+            DeleteCommand = new DelegateCommand<object>(DeleteCommandMethod);
+{{#newline}}
+{{/if}}
+{{/if}}
+{{#if IsForm}}
+            SaveCommand = new DelegateCommand<object>(SaveCommandMethod);
+{{#newline}}
+            CancelCommand = new DelegateCommand<object>(CancelCommandMethod);
+{{#newline}}
+{{/if}}
+{{#if IsDialog}}
+            dialogButtons = new DialogButtonCollection
+{{#newline}}
+            {
+{{#newline}}
+                new DialogButton
+{{#newline}}
+                {
+{{#newline}}
+                    Content = "{{SaveButtonText}}",
+{{#newline}}
+                    Command = new DelegateCommand<object>(p =>
+{{#newline}}
+                    {
+{{#newline}}
+                        if(MessageBox.Show("{{SaveMessageText}}","{{SaveMessageTitle}}",MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
+{{#newline}}
+                        {
+{{#newline}}
+{{#if IsEdit}}
+                            {{CapitalizedName}}Repository.Update(x=> x.{{PrimaryKey}} == {{PrimaryKey}},new Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}}
+{{#else}}
+                            {{CapitalizedName}}Repository.Create(new Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}}
+{{/if}}
+{{#newline}}
+                            {
+{{#newline}}
+{{#each Properties}}
+{{#if ParentObjectCapitalizedName}}
+{{#if IsEdit}}
+                                {{Name}} = {{UnCapitalizedName}},
+{{#newline}}
+{{#else}}
+                                {{Name}} = ((Core.SharedModel.Models.{{ParentObjectNameSpace}}.{{ParentObjectSingularizedName}}){{ParentObjectCapitalizedName}}).{{ParentObjectPrimaryKeyName}},
+{{#newline}}
+{{/if}}
+{{#else}}
+                                {{Name}} = {{UnCapitalizedName}},
+{{#newline}}
+{{/if}}
+{{/each}}
+                            });
+{{#newline}}
+                        }
+{{#newline}}
+                        EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Publish(new { p="ConfirmDialog" });
+{{#newline}}
+                    }),
+{{#newline}}
+                    CommandParameter = null
+{{#newline}}
+                },
+{{#newline}}
+                new DialogButton
+{{#newline}}
+                {
+{{#newline}}
+                    Content = "{{CancelButtonText}}",
+{{#newline}}
+                    Command = new DelegateCommand<object>(obj =>
+{{#newline}}
+                    {
+{{#newline}}
+                        EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Publish(new { p="CancelDialog" });
+{{#newline}}
+                    }),
+{{#newline}}
+                    CommandParameter = null
+{{#newline}}
+                 }
+{{#newline}}
+            };
+{{#newline}}
+{{/if}}
+        }
+{{#newline}}
+{{#newline}}
+        private string {{UnSingularizedName}}{{Prefix}}Title;
+{{#newline}}
+        public string {{SingularizedName}}{{Prefix}}Title
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{UnSingularizedName}}{{Prefix}}Title; }
+{{#newline}}
+            set { SetProperty(ref {{UnSingularizedName}}{{Prefix}}Title, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#if IsFormOrDialog}}
+{{#each Properties}}
+{{#if EnumItems}}
+        private ObservableCollection<ListViewItem> {{LowerSingularizedName}}EnumItems;
+{{#newline}}
+        public ObservableCollection<ListViewItem> {{SingularizedName}}EnumItems
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{LowerSingularizedName}}EnumItems; }
+{{#newline}}
+            set { SetProperty(ref {{LowerSingularizedName}}EnumItems, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#if ParentObjectName}}
+        private GridViewColumnCollection {{ParentObjectUnCapitalizedName}}Columns;
+{{#newline}}
+        public GridViewColumnCollection {{ParentObjectCapitalizedName}}Columns
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectUnCapitalizedName}}Columns; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectUnCapitalizedName}}Columns, value); }
+{{#newline}}
+        }
+{{#newline}}
+        private object {{ParentObjectUnCapitalizedName}}Data;
+{{#newline}}
+        public object {{ParentObjectCapitalizedName}}Data
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectUnCapitalizedName}}Data; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectUnCapitalizedName}}Data, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{/each}}
+{{#newline}}
+{{/if}}
+{{#if IsGrid}}
+        private GridViewColumnCollection columns;
+{{#newline}}
+        public GridViewColumnCollection Columns
+{{#newline}}
+        {
+{{#newline}}
+            get { return columns; }
+{{#newline}}
+            set { SetProperty(ref columns, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private GridViewButtonCollection buttons;
+{{#newline}}
+        public GridViewButtonCollection Buttons
+{{#newline}}
+        {
+{{#newline}}
+            get { return buttons; }
+{{#newline}}
+            set { SetProperty(ref buttons, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private GridViewSetting gridSetting;
+{{#newline}}
+        public GridViewSetting GridSetting
+{{#newline}}
+        {
+{{#newline}}
+            get { return gridSetting; }
+{{#newline}}
+            set { SetProperty(ref gridSetting, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private object selectedItem;
+{{#newline}}
+        public object SelectedItem
+{{#newline}}
+        {
+{{#newline}}
+            get { return selectedItem; }
+{{#newline}}
+            set { SetProperty(ref selectedItem, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private object data;
+{{#newline}}
+        public object Data
+{{#newline}}
+        {
+{{#newline}}
+            get { return data; }
+{{#newline}}
+            set { SetProperty(ref data, value); }
+{{#newline}}
+        }
+{{#each Properties}}
+{{#if EnumItems}}
+        private ObservableCollection<ListViewItem> {{LowerSingularizedName}}EnumItems;
+{{#newline}}
+        public ObservableCollection<ListViewItem> {{SingularizedName}}EnumItems
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{LowerSingularizedName}}EnumItems; }
+{{#newline}}
+            set { SetProperty(ref {{LowerSingularizedName}}EnumItems, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#if IsObject}}
+{{#newline}}
+        private object {{ParentObjectLowerPluralizedName}};
+{{#newline}}
+        public object {{ParentObjectPluralizedName}}
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectLowerPluralizedName}}; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectLowerPluralizedName}}, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{/each}}
+{{#newline}}
+{{#if Add}}
+        public DelegateCommand<object> AddCommand { get; set; }
+{{#newline}}
+        private void AddCommandMethod(object parameter)
+{{#newline}}
+        {
+{{#newline}}
+            var {{UnSingularizedName}}AddViewDialog = new {{SingularizedName}}AddViewDialog();
+{{#newline}}
+            {{UnSingularizedName}}AddViewDialog.ShowDialog();
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#if Edit}}
+        public DelegateCommand<object> EditCommand { get; set; }
+{{#newline}}
+        private void EditCommandMethod(object parameter)
+{{#newline}}
+        {
+{{#newline}}
+            var {{UnSingularizedName}}EditViewDialog = new {{SingularizedName}}EditViewDialog();
+{{#newline}}
+            var item = (Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}})selectedItem;
+{{#newline}}
+            if(item == null)
+{{#newline}}
+            {
+{{#newline}}
+                MessageBox.Show("");
+{{#newline}}
+                return;
+{{#newline}}
+            }
+{{#newline}}
+            EventAggregatorService.Instance.GetEvent<PubSubEvent<Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}}>>().Publish(item);
+{{#newline}}
+            {{UnSingularizedName}}EditViewDialog.ShowDialog();
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#if Delete}}
+        public DelegateCommand<object> DeleteCommand { get; set; }
+{{#newline}}
+        private void DeleteCommandMethod(object parameter)
+{{#newline}}
+        {
+{{#newline}}
+            if(MessageBox.Show("{{DeleteMessageText}}","{{DeleteMessageTitle}}",MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
+{{#newline}}
+            {
+{{#newline}}
+                var findedItem = selectedItem as Core.SharedModel.Models.{{CapitalizedNameSpace}}.{{SingularizedName}};
+{{#newline}}
+                if(findedItem != null)
+{{#newline}}
+                    if({{CapitalizedName}}Repository.Delete(f=>f.{{PrimaryKey}} == findedItem.{{PrimaryKey}}))
+{{#newline}}
+                        MessageBox.Show("{{GridRowDeletedMessage}}");
+{{#newline}}
+                
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{/if}}
+{{#newline}}
+{{#if IsForm}}
+        public DelegateCommand<object> SaveCommand { get; set; }
+{{#newline}}
+        private void SaveCommandMethod(object parameter)
+{{#newline}}
+        {
+{{#newline}}
+            EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Publish(new { p="ConfirmDialog" });
+{{#newline}}
+        }
+{{#newline}}
+        public DelegateCommand<object> CancelCommand { get; set; }
+{{#newline}}
+        private void CancelCommandMethod(object parameter)
+{{#newline}}
+        {
+{{#newline}}
+            EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Publish(new { p="CancelDialog" });
+{{#newline}}
+        }
+{{#newline}}
+{{#each Properties}}
+{{#if IsObject}}
+{{#newline}}
+        private object {{ParentObjectUnCapitalizedName}};
+{{#newline}}
+        public object {{ParentObjectCapitalizedName}}
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectUnCapitalizedName}}; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectUnCapitalizedName}}, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#each ParentObjectProperties}}
+{{#if HasParent}}
+{{#newline}}
+        private object {{ParentObjectLowerPluralizedName}};
+{{#newline}}
+        public object {{ParentObjectPluralizedName}}
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectLowerPluralizedName}}; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectLowerPluralizedName}}, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{/each}}
+{{#newline}}
+        private {{#if IsObject}} {{SQLDataType}}{{#if Nullable}}?{{/if}} {{#else}} {{DataType}}{{/if}} {{UnCapitalizedName}};
+{{#newline}}
+        public {{#if IsObject}} {{SQLDataType}}{{#if Nullable}}?{{/if}} {{#else}} {{DataType}}{{/if}} {{Name}}
+{{#newline}}
+        {
+{{#newline}}
+            get
+{{#newline}}
+            {
+{{#newline}}
+                return {{UnCapitalizedName}};
+{{#newline}}
+            }
+{{#newline}}
+            set
+{{#newline}}
+            {
+{{#newline}}
+                SetProperty(ref {{UnCapitalizedName}}, value); 
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}} 
+{{/each}}
+{{/if}}
+{{#if IsDialog}}
+        private DialogButtonCollection dialogButtons;
+{{#newline}}
+        public DialogButtonCollection DialogButtons
+{{#newline}}
+        {
+{{#newline}}
+            get { return dialogButtons;  }
+{{#newline}}
+            set { SetProperty(ref dialogButtons , value); }
+{{#newline}}
+        }
+{{#each Properties}}
+{{#if IsObject}}
+{{#newline}}
+        private object {{ParentObjectUnCapitalizedName}};
+{{#newline}}
+        public object {{ParentObjectCapitalizedName}}
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectUnCapitalizedName}}; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectUnCapitalizedName}}, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{#each ParentObjectProperties}}
+{{#if HasParent}}
+{{#newline}}
+        private object {{ParentObjectLowerPluralizedName}};
+{{#newline}}
+        public object {{ParentObjectPluralizedName}}
+{{#newline}}
+        {
+{{#newline}}
+            get { return {{ParentObjectLowerPluralizedName}}; }
+{{#newline}}
+            set { SetProperty(ref {{ParentObjectLowerPluralizedName}}, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{/if}}
+{{/each}}
+{{#newline}}
+        private {{#if IsObject}} {{SQLDataType}}{{#if Nullable}}?{{/if}} {{#else}} {{DataType}}{{/if}} {{UnCapitalizedName}};
+{{#newline}}
+        public {{#if IsObject}} {{SQLDataType}}{{#if Nullable}}?{{/if}} {{#else}} {{DataType}}{{/if}} {{Name}}
+{{#newline}}
+        {
+{{#newline}}
+            get
+{{#newline}}
+            {
+{{#newline}}
+                return {{UnCapitalizedName}};
+{{#newline}}
+            }
+{{#newline}}
+            set
+{{#newline}}
+            {
+{{#newline}}
+                SetProperty(ref {{UnCapitalizedName}}, value); 
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}} 
+{{/each}}
+
+{{/if}}
+{{#newline}}
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

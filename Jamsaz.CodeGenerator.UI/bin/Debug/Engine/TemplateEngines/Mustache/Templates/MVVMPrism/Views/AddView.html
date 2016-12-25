@@ -1,0 +1,69 @@
+﻿using {{ProjectName}}.Core.Services;
+{{#newline}}
+using System;
+{{#newline}}
+using Prism.Events;
+{{#newline}}
+namespace {{ProjectName}}.Modules.{{CapitalizedNameSpace}}.Views
+{{#newline}}
+{
+{{#newline}}
+    public partial class {{SingularizedName}}AddViewForm : Core.Controls.Dialog.Dialog
+{{#newline}}
+    {
+{{#newline}}
+        protected SubscriptionToken Token = null;
+{{#newline}}
+        public {{SingularizedName}}AddViewForm()
+{{#newline}}
+        {
+{{#newline}}
+            InitializeComponent();
+{{#newline}}
+            Token = EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Subscribe((parameter) =>
+{{#newline}}
+            {
+{{#newline}}
+                if (parameter.GetType().GetProperty("p").GetValue(parameter, null).ToString().Equals("ConfirmDialog"))
+{{#newline}}
+                {
+{{#newline}}
+                    DialogResult = true;
+{{#newline}}
+                    Close();
+{{#newline}}
+                }
+{{#newline}}
+                else if (parameter.GetType().GetProperty("p").GetValue(parameter, null).ToString().Equals("CancelDialog"))
+{{#newline}}
+                {
+{{#newline}}
+                    DialogResult = false;
+{{#newline}}
+                    Close();
+{{#newline}}
+                }
+{{#newline}}
+            });
+{{#newline}}
+        }
+{{#newline}}
+        protected override void OnClosed(EventArgs e)
+{{#newline}}
+        {
+            base.OnClosed(e);
+{{#newline}}
+            if(Token != null)
+{{#newline}}
+            {
+{{#newline}}
+                EventAggregatorService.Instance.GetEvent<PubSubEvent<object>>().Unsubscribe(Token);
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

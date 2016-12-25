@@ -1,0 +1,50 @@
+﻿using Microsoft.Practices.Unity;
+{{#newline}}
+using Prism.Modularity;
+{{#newline}}
+using {{ProjectName}}.Modules.{{CapitalizedName}}.Views;
+{{#newline}}
+{{#newline}}
+namespace {{ProjectName}}.Modules.{{CapitalizedName}}
+{{#newline}}
+{
+{{#newline}}
+    public class {{CapitalizedNameSpace}}Module : IModule
+{{#newline}}
+    {
+{{#newline}}
+        private readonly IUnityContainer unityContainer;
+{{#newline}}
+{{#newline}}
+        public {{CapitalizedNameSpace}}Module(IUnityContainer unityContainer)
+{{#newline}}
+        {
+{{#newline}}
+            this.unityContainer = unityContainer;
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        public void Initialize()
+{{#newline}}
+        {
+{{#newline}}
+{{#each Objects}}
+        unityContainer.RegisterType<object, {{SingularizedName}}GridViewForm>("{{SingularizedName}}GridViewFormView");
+{{#newline}}
+        unityContainer.RegisterType<object, {{SingularizedName}}AddViewForm>("{{SingularizedName}}AddViewFormView");
+{{#newline}}
+        unityContainer.RegisterType<object, {{SingularizedName}}EditViewForm>("{{SingularizedName}}EditViewFormView");
+{{#newline}}
+        unityContainer.RegisterType<object, {{SingularizedName}}AddViewDialog>("{{SingularizedName}}AddViewDialogView");
+{{#newline}}
+        unityContainer.RegisterType<object, {{SingularizedName}}EditViewDialog>("{{SingularizedName}}EditViewDialogView");
+{{#newline}}
+{{/each}}
+{{#newline}}
+        }
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

@@ -1,0 +1,90 @@
+﻿using System.Linq;
+{{#newline}}
+using Microsoft.Practices.Unity;
+{{#newline}}
+using Prism.Commands;
+{{#newline}}
+using Prism.Mvvm;
+{{#newline}}
+using Prism.Regions;
+{{#newline}}
+using {{ProjectName}}.Core.Controls.Menues;
+{{#newline}}
+{{#newline}}
+namespace {{ProjectName}}.Modules.Navigation.ViewModels
+{{#newline}}
+{
+{{#newline}}
+    public class PanelBarViewModel : BindableBase
+{{#newline}}
+    {
+{{#newline}}
+        private readonly IRegionManager regionManager;
+{{#newline}}
+        private readonly IUnityContainer unityContainer;
+{{#newline}}
+        public PanelBarViewModel(IRegionManager manager, IUnityContainer container)
+{{#newline}}
+        {
+{{#newline}}
+            regionManager = manager;
+{{#newline}}
+            unityContainer = container;
+{{#newline}}
+            NavigationCommand = new DelegateCommand<string>(ExecuteMethod);
+{{#newline}}
+            menuItems = new MenuItemCollection
+{{#newline}}
+            {
+{{#newline}}
+{{#each NameSpaces}}
+                new MenuItem("{{DisplayName}}", "", new MenuItemCollection
+{{#newline}}
+                {
+{{#newline}}
+{{#each Objects}}
+                    new MenuItem("{{DisplayName}}", "") { Command = NavigationCommand,CommandParameter = "{{Name}}View"},
+{{#newline}}
+{{/each}}
+                }),
+{{/each}}
+{{#newline}}
+            };
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private void ExecuteMethod(string path)
+{{#newline}}
+        {
+{{#newline}}
+            var region = regionManager.Regions["FormRegion"];
+{{#newline}}
+            var view = unityContainer.Resolve<dynamic>(path);
+{{#newline}}
+            if (region.Views.Cast<dynamic>().All(x => x.Name != view.Name))
+{{#newline}}
+                regionManager.AddToRegion("FormRegion", view);
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        private MenuItemCollection menuItems;
+{{#newline}}
+        public MenuItemCollection MenuItems
+{{#newline}}
+        {
+{{#newline}}
+        get { return menuItems; }
+{{#newline}}
+        set { SetProperty(ref menuItems, value); }
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+        public DelegateCommand<string> NavigationCommand { get; set; }
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

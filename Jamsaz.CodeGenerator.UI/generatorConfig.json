@@ -1,0 +1,32 @@
+﻿{
+  "Project": {
+    "Name": "Template",
+    "Type": 0, //0 => WPFMVVM ,  1 => ASPNETAGMVC , . . .
+    "ModelType": 1, //0 => Model First , 1 => Database First,
+    "Data": {
+      "Type": 0, //0 => SQL , 1 => CSV , . . .
+      "Path": "zojaji",
+      "Name": "Treasury"
+    },
+    "TemplateGenerateType": [
+      {
+        "Name": "GenerateModel"
+      },
+      {
+        "Name": "GenerateNewTemplate"
+      },
+      {
+        "Name": "GenerateNewFormTemplate"
+      },
+      {
+        "Name": "GenerateEditFormTemplate"
+      },
+      {
+        "Name": "GenerateListFormTemplate"
+      },
+      {
+        "Name": "GenerateLookupFormTemplate"
+      }
+    ]
+  }
+}

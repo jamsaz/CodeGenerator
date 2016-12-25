@@ -1,0 +1,59 @@
+﻿<controls:Form x:Class="{{ProjectName}}.Modules.{{CapitalizedNameSpace}}.Views.{{SingularizedName}}GridViewForm"
+{{#newline}}
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+{{#newline}}
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+{{#newline}}
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+{{#newline}}
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+{{#newline}}
+                xmlns:controls="clr-namespace:{{ProjectName}}.Core.Controls;assembly={{ProjectName}}.Core.Controls"
+{{#newline}}
+                xmlns:gridview="clr-namespace:{{ProjectName}}.Core.Controls.GridView;assembly={{ProjectName}}.Core.Controls"
+{{#newline}}
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+{{#newline}}
+                xmlns:prism="http://prismlibrary.com/"
+{{#newline}}
+                mc:Ignorable="d"
+{{#newline}}
+                d:DesignHeight="300" d:DesignWidth="300" Header="{Binding {{SingularizedName}}GridViewFormTitle}" Name="{{SingularizedName}}GridForm" prism:ViewModelLocator.AutoWireViewModel="True">
+{{#newline}}
+    <Grid>
+        {{#newline}}
+        <Grid.RowDefinitions>
+            {{#newline}}
+            <RowDefinition/>
+            {{#newline}}
+            {{#if HasOperationRow}}
+            <RowDefinition Height="40"/>
+            {{/if}}
+        </Grid.RowDefinitions>
+        {{#newline}}
+    {{#newline}}
+        <gridview:GridView Grid.Row="{{#if HasOperationRow}}0{{#else}}0{{/if}}" Columns="{Binding Columns}" Buttons="{Binding Buttons}" Setting="{Binding GridSetting}" SelectedItem="{Binding SelectedItem}"
+    {{#newline}}
+        DataSource="{Binding Data}"/>
+        {{#newline}}
+        {{#if HasOperationRow}}
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        {{#newline}}
+        {{#if Add}}
+            <telerik:RadButton Content="{{AddButtonText}}" Margin="3" Command="{Binding AddCommand}"/>
+        {{#newline}}
+        {{/if}}
+        {{#if Edit}}
+            <telerik:RadButton Content="{{EditButtonText}}" Margin="3" Command="{Binding EditCommand}"/>
+        {{#newline}}
+        {{/if}}
+        {{#if Delete}}
+            <telerik:RadButton Content="{{DeleteButtonText}}" Margin="3" Command="{Binding DeleteCommand}"/>
+        {{/if}}
+        </StackPanel>
+    {{#newline}}
+    {{/if}}
+    </Grid>
+    {{#newline}}
+</controls:Form>
+{{#newline}}

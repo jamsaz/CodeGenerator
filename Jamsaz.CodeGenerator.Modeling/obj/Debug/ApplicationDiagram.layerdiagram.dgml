@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1)" Category="File" FilePath="C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\ApplicationDiagram.layerdiagram" Label="ApplicationDiagram.layerdiagram" />
+    <Node Id="26d07fab-7df7-4633-9d22-0b8a32046a94" Category="Dsl.LayerModel" Dsl.DiagramPath="C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator.Modeling\ApplicationDiagram.layerdiagram" Dsl.QualifiedName="" Label="ApplicationDiagram" />
+    <Node Id="96bfc16e-7061-4b02-bcc0-dd0d3a6ac6f1" Category="Dsl.Layer" Dsl.ForbiddenNamespaceDependencies="" Dsl.ForbiddenNamespace="" Dsl.RequiredNamespace="" Dsl.QualifiedName="Presentaion&#xD;&#xA;" Label="Presentaion&#xD;&#xA;" />
+  </Nodes>
+  <Links>
+    <Link Source="26d07fab-7df7-4633-9d22-0b8a32046a94" Target="96bfc16e-7061-4b02-bcc0-dd0d3a6ac6f1" Category="Dsl.LayerModelHasLayers" />
+  </Links>
+  <Categories>
+    <Category Id="Dsl.Layer" Label="Layer" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Layer" />
+    <Category Id="Dsl.LayerModel" Label="Layer Model" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Layer Model" />
+    <Category Id="Dsl.LayerModelHasLayers" Label="Layer Model Has Layers" IsContainment="True" CanLinkedNodesBeDataDriven="True" CanBeDataDriven="True" IncomingActionLabel="Layer Model" OutgoingActionLabel="Layers" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" NavigationActionLabel="Files" DefaultAction="Microsoft.Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Dsl.DiagramPath" DataType="System.String" />
+    <Property Id="Dsl.QualifiedName" DataType="System.String" />
+    <Property Id="Dsl.ForbiddenNamespaceDependencies" DataType="System.String" />
+    <Property Id="Dsl.ForbiddenNamespace" DataType="System.String" />
+    <Property Id="Dsl.RequiredNamespace" DataType="System.String" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=file:///C:/JamsazERP/Main/Source/Jamsaz.CodeGenerator/Jamsaz.CodeGenerator/Jamsaz.CodeGenerator.Modeling/ApplicationDiagram.layerdiagram" />
+  </IdentifierAliases>
+</DirectedGraph>

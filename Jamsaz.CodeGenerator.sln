@@ -1,0 +1,131 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inflector", "Inflector\Inflector.csproj", "{D5677360-4354-4BA3-9E23-DB169C22BEAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3A6401D1-969C-43C6-A199-F66E8633A48B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mustache-sharp", "mustache-sharp\mustache-sharp.csproj", "{D71B378F-A4BA-4263-A4F0-07A49A0C528D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{98BCB1C6-63E3-4959-8E9A-EC09DB771B94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.CodeGenerator.Tool", "Jamsaz.CodeGenerator.Tool\Jamsaz.CodeGenerator.Tool.csproj", "{D638AB95-E7B8-4325-A355-A37DCE866469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.CodeGenerator.UI", "Jamsaz.CodeGenerator.UI\Jamsaz.CodeGenerator.UI.csproj", "{D5694D6E-8769-4D42-902B-E78C7E146113}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectTemplates", "ProjectTemplates", "{4F9FEB1A-7BCE-4E5A-9B6F-AEF91DAAFAAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.Template.Module", "Jamsaz.Template.Module\Jamsaz.Template.Module.csproj", "{73EBFAA0-9A29-4103-8C96-D43D7D10377E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.Template.Wizard", "Jamsaz.Template.Wizard\Jamsaz.Template.Wizard.csproj", "{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.Template.WpfPrism", "Jamsaz.Template.WpfPrism\Jamsaz.Template.WpfPrism.csproj", "{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.CodeGeneratorExtension", "Jamsaz.CodeGeneratorExtension\Jamsaz.CodeGeneratorExtension.csproj", "{263978ED-D2BE-4C05-B8C0-ED690A675B04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6A6626B0-55C5-4038-B663-914639CA9571}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsaz.CodeGenerator.UnitTest", "Jamsaz.CodeGenerator.UnitTest\Jamsaz.CodeGenerator.UnitTest.csproj", "{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71B378F-A4BA-4263-A4F0-07A49A0C528D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71B378F-A4BA-4263-A4F0-07A49A0C528D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71B378F-A4BA-4263-A4F0-07A49A0C528D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71B378F-A4BA-4263-A4F0-07A49A0C528D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D638AB95-E7B8-4325-A355-A37DCE866469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D638AB95-E7B8-4325-A355-A37DCE866469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D638AB95-E7B8-4325-A355-A37DCE866469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D638AB95-E7B8-4325-A355-A37DCE866469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5694D6E-8769-4D42-902B-E78C7E146113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5694D6E-8769-4D42-902B-E78C7E146113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5694D6E-8769-4D42-902B-E78C7E146113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5694D6E-8769-4D42-902B-E78C7E146113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73EBFAA0-9A29-4103-8C96-D43D7D10377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73EBFAA0-9A29-4103-8C96-D43D7D10377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73EBFAA0-9A29-4103-8C96-D43D7D10377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73EBFAA0-9A29-4103-8C96-D43D7D10377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263978ED-D2BE-4C05-B8C0-ED690A675B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263978ED-D2BE-4C05-B8C0-ED690A675B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263978ED-D2BE-4C05-B8C0-ED690A675B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263978ED-D2BE-4C05-B8C0-ED690A675B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB} = {3A6401D1-969C-43C6-A199-F66E8633A48B}
+		{D71B378F-A4BA-4263-A4F0-07A49A0C528D} = {3A6401D1-969C-43C6-A199-F66E8633A48B}
+		{D638AB95-E7B8-4325-A355-A37DCE866469} = {98BCB1C6-63E3-4959-8E9A-EC09DB771B94}
+		{D5694D6E-8769-4D42-902B-E78C7E146113} = {98BCB1C6-63E3-4959-8E9A-EC09DB771B94}
+		{73EBFAA0-9A29-4103-8C96-D43D7D10377E} = {4F9FEB1A-7BCE-4E5A-9B6F-AEF91DAAFAAC}
+		{347F9E8D-A2B5-443C-8DA7-A67D4DD11CF8} = {4F9FEB1A-7BCE-4E5A-9B6F-AEF91DAAFAAC}
+		{5BD9916D-1F3B-400B-BC04-A1422E98A0E8} = {4F9FEB1A-7BCE-4E5A-9B6F-AEF91DAAFAAC}
+		{263978ED-D2BE-4C05-B8C0-ED690A675B04} = {98BCB1C6-63E3-4959-8E9A-EC09DB771B94}
+		{6ABAD56E-3D7A-474A-9C3C-A5F81D8A1420} = {6A6626B0-55C5-4038-B663-914639CA9571}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://burton:8080/tfs/jamsaz
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Inflector\\Inflector.csproj
+		SccProjectTopLevelParentUniqueName1 = Jamsaz.CodeGenerator.sln
+		SccProjectName1 = Inflector
+		SccLocalPath1 = Inflector
+		SccProjectUniqueName2 = mustache-sharp\\mustache-sharp.csproj
+		SccProjectTopLevelParentUniqueName2 = Jamsaz.CodeGenerator.sln
+		SccProjectName2 = mustache-sharp
+		SccLocalPath2 = mustache-sharp
+		SccProjectUniqueName3 = Jamsaz.CodeGenerator.Tool\\Jamsaz.CodeGenerator.Tool.csproj
+		SccProjectTopLevelParentUniqueName3 = Jamsaz.CodeGenerator.sln
+		SccProjectName3 = Jamsaz.CodeGenerator.Tool
+		SccLocalPath3 = Jamsaz.CodeGenerator.Tool
+		SccProjectUniqueName4 = Jamsaz.CodeGenerator.UI\\Jamsaz.CodeGenerator.UI.csproj
+		SccProjectTopLevelParentUniqueName4 = Jamsaz.CodeGenerator.sln
+		SccProjectName4 = Jamsaz.CodeGenerator.UI
+		SccLocalPath4 = Jamsaz.CodeGenerator.UI
+		SccProjectUniqueName5 = Jamsaz.Template.Module\\Jamsaz.Template.Module.csproj
+		SccProjectTopLevelParentUniqueName5 = Jamsaz.CodeGenerator.sln
+		SccProjectName5 = Jamsaz.Template.Module
+		SccLocalPath5 = Jamsaz.Template.Module
+		SccProjectUniqueName6 = Jamsaz.Template.Wizard\\Jamsaz.Template.Wizard.csproj
+		SccProjectTopLevelParentUniqueName6 = Jamsaz.CodeGenerator.sln
+		SccProjectName6 = Jamsaz.Template.Wizard
+		SccLocalPath6 = Jamsaz.Template.Wizard
+		SccProjectUniqueName7 = Jamsaz.Template.WpfPrism\\Jamsaz.Template.WpfPrism.csproj
+		SccProjectTopLevelParentUniqueName7 = Jamsaz.CodeGenerator.sln
+		SccProjectName7 = Jamsaz.Template.WpfPrism
+		SccLocalPath7 = Jamsaz.Template.WpfPrism
+		SccProjectUniqueName8 = Jamsaz.CodeGeneratorExtension\\Jamsaz.CodeGeneratorExtension.csproj
+		SccProjectTopLevelParentUniqueName8 = Jamsaz.CodeGenerator.sln
+		SccProjectName8 = Jamsaz.CodeGeneratorExtension
+		SccLocalPath8 = Jamsaz.CodeGeneratorExtension
+		SccProjectUniqueName9 = Jamsaz.CodeGenerator.UnitTest\\Jamsaz.CodeGenerator.UnitTest.csproj
+		SccProjectTopLevelParentUniqueName9 = Jamsaz.CodeGenerator.sln
+		SccProjectName9 = Jamsaz.CodeGenerator.UnitTest
+		SccLocalPath9 = Jamsaz.CodeGenerator.UnitTest
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,77 @@
+﻿using System;
+{{#newline}}
+using System.Collections.Generic;
+{{#newline}}
+using System.Text;
+{{#newline}}
+using System.Data.SqlClient;
+{{#newline}}
+using System.ComponentModel.DataAnnotations;
+{{#newline}}
+using System.ComponentModel.DataAnnotations.Schema;
+{{#newline}}
+using {{ProjectName}}.Core.SharedModel;
+{{#newline}}
+{{#newline}}
+
+namespace {{ProjectName}}.Core.SharedModel.Models.{{CapitalizedNameSpace}}
+{{#newline}}
+{
+{{#newline}}
+    [Table("{{SchemaName}}.{{Name}}")]
+{{#newline}}
+    public partial class {{SingularizedName}} : IModel
+{{#newline}}
+    {
+{{#newline}}
+        public {{SingularizedName}}()
+{{#newline}}
+        {
+{{#newline}}
+{{#each CompositeObjects}}
+            {{PluralizedName}} = new HashSet<{{CapitalizedNameSpace}}.{{SingularizedName}}>();
+            {{#newline}}
+{{/each}}
+{{#newline}}
+        }
+{{#newline}}
+{{#newline}}
+{{#each Properties}}
+{{#if IsComputed}}
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+{{#newline}}
+{{/if}}
+{{#if IsRequired}}
+        [Required]
+{{#newline}}
+{{/if}}
+{{#if IsString}}
+        [StringLength({{MaxLength}})]
+{{#newline}}
+{{/if}}
+        public {{#if IsObject}} {{SQLDataType}}{{#if Nullable}}?{{/if}} {{#else}} {{DataType}}{{/if}} {{Name}} { get; set; }
+{{#newline}}
+{{#newline}}
+{{#if IsObject}}
+        [ForeignKey("{{Name}}")]
+{{#newline}}
+        public {{DataType}} {{ParentObjectSingularizedName}} { get; set; }
+{{#newline}}{{#newline}}
+{{/if}}
+{{/each}}
+{{#each CompositeObjects}}
+        public ICollection<{{CapitalizedNameSpace}}.{{SingularizedName}}> {{PluralizedName}} { get; set; }
+{{#newline}}
+{{#newline}}
+{{/each}}
+{{#newline}}
+{{#newline}}
+{{#if IsComposite}}
+
+        public bool IsDeleted { get; set; }
+{{#newline}}
+        public bool IsDirty { get; set; }
+{{/if}}
+    }
+{{#newline}}
+}

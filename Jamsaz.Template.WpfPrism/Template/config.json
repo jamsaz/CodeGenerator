@@ -1,0 +1,992 @@
+{
+  "currentShell": {
+    "path": "\\$safeprojectname$.Shell.dll",
+    "modulePath": "\\",
+    "dependenciesPath": "\\",
+    "name": "MainWindow",
+    "adapters": [
+      {
+        "control": {
+          "assemblyPath": "\\Telerik.Windows.Controls.Docking.dll",
+          "type": "RadPaneGroup"
+        },
+        "name": "DockingAdapter"
+      },
+      {
+        "control": {
+          "assemblyPath": "\\Telerik.Windows.Controls.Navigation.dll",
+          "type": "RadPanelBar"
+        },
+        "name": "PanelBarAdapter"
+      }
+    ],
+    "behaviors": [
+      {
+        "key": "DependentControlsViewBehavior",
+        "assemblyPath": ""
+      }
+    ]
+  },
+  "Project": {
+    "Name": "$safeprojectname$",
+    "Type": 0, //0 => WPFMVVM ,  1 => ASPNETAGMVC , . . .
+    "ModelType": 1, //0 => Model First , 1 => Database First,
+    "Data": {
+      "Type": 0, //0 => SQL , 1 => CSV , . . .
+      "Path": "",
+      "Name": "",
+      "UserName": "",
+      "Password": "",
+      "Query": "\\query.sql"
+    },
+    "TemplatePath": "D:\\CodeGenerator\\TemplatePath\\Engine\\Mustache\\Templates\\",
+    "ViewsModuleProjectTemplateName": "Template.Module.zip",
+    "ViewsModuleProjectPath": ".Modules.",
+    "Templates": [
+      {
+        "Name": "Model",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Core.SharedModel\\Models\\",
+        "Template": "Global\\Model.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "DataContext",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Repository.SQL\\Model\\",
+        "Template": "Global\\Datacontext.html",
+        "Type": "Single",
+        "Object": "GetDataContextObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "I@Repository",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Repository.Interface\\",
+        "Template": "MVVMPrism\\IRepository.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": true
+      },
+      {
+        "Name": "@Repository",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Repository.SQL\\",
+        "Template": "MVVMPrism\\Repository.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": true
+      },
+      {
+        "Name": "NavigationViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.Navigation\\ViewModel\\",
+        "Template": "MVVMPrism\\NavigationViewModel.html",
+        "Type": "Single",
+        "Object": "GetNameSpacesForMenu",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@ViewsModule",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@",
+        "Template": "MVVMPrism\\ViewsModule.html",
+        "Type": "Multiple",
+        "Object": "GenerateModuleProject",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@GridViewFormViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\ViewModels\\",
+        "Template": "MVVMPrism\\ViewModel.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewFormViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\ViewModels\\",
+        "Template": "MVVMPrism\\ViewModel.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewDialogViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\ViewModels\\",
+        "Template": "MVVMPrism\\ViewModel.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewFormViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\ViewModels\\",
+        "Template": "MVVMPrism\\ViewModel.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewDialogViewModel",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\ViewModels\\",
+        "Template": "MVVMPrism\\ViewModel.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@GridViewForm",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\GridView.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@GridViewForm",
+        "Extension": "xaml",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\GridView.xaml.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewForm",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\AddView.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewForm",
+        "Extension": "xaml",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\AddView.xaml.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewForm",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\EditView.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewForm",
+        "Extension": "xaml",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\EditView.xaml.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewDialog",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\AddDialogView.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@AddViewDialog",
+        "Extension": "xaml",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\AddDialogView.xaml.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewDialog",
+        "Extension": "cs",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\EditDialogView.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "@EditViewDialog",
+        "Extension": "xaml",
+        "Path": "$safeprojectname$.Modules.@\\Views\\",
+        "Template": "MVVMPrism\\Views\\EditDialogView.xaml.html",
+        "Type": "Multiple",
+        "Object": "GetObjects",
+        "CreateFolderForNamespace": false
+      },
+      {
+        "Name": "Bootstrapper",
+        "Extension": "cs",
+        "Path": "$safeprojectname$\\",
+        "Template": "MVVMPrism\\Bootstraper.html",
+        "Type": "Single",
+        "Object": "GetAllObjects",
+        "CreateFolderForNamespace": false
+      }
+    ],
+    "MasterFormTemplateGenerateType": [
+      {
+        "Name": "GridViewForm"
+      },
+      {
+        "Name": "AddForm"
+      },
+      {
+        "Name": "DilogForm"
+      }
+    ],
+    "Patterns": [
+      {
+        "Id": 0,
+        "Name": "MVVM Prism",
+        "Definitaion": {
+          "Key": "Project",
+          "Value": [
+            {
+              "Key": "Name",
+              "ValueType": "String",
+              "Value": "",
+              "Describtion": "",
+              "GroupName": ""
+            },
+            {
+              "Key": "NameSpaces",
+              "ValueType": "List",
+              "Value": [
+                {
+                  "Key": "Name",
+                  "ValueType": "String",
+                  "Value": "",
+                  "Describtion": "",
+                  "GroupName": ""
+                },
+                {
+                  "Key": "SchemaName",
+                  "ValueType": "String",
+                  "Value": "",
+                  "Describtion": "",
+                  "GroupName": ""
+                },
+                {
+                  "Key": "DisplayName",
+                  "ValueType": "String",
+                  "Value": "",
+                  "Describtion": "",
+                  "GroupName": ""
+                },
+                {
+                  "Key": "ModuleName",
+                  "ValueType": "String",
+                  "Value": "",
+                  "Describtion": "",
+                  "GroupName": ""
+                },
+                {
+                  "Key": "ModuleId",
+                  "ValueType": "Int32",
+                  "Value": "",
+                  "Describtion": "",
+                  "GroupName": ""
+                },
+                {
+                  "Key": "Objects",
+                  "ValueType": "List",
+                  "Value": [
+                    {
+                      "Key": "Id",
+                      "ValueType": "Int32",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    },
+                    {
+                      "Key": "PrimaryKey",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": ""
+                    },
+                    {
+                      "Key": "Name",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "Object name is equal to database table name.",
+                      "GroupName": "Database Metadata"
+                    },
+                    {
+                      "Key": "NameSpace",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": ""
+                    },
+                    {
+                      "Key": "Title",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "DisplayName",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "Add",
+                      "ValueType": "Boolean",
+                      "Value": true,
+                      "Describtion": "",
+                      "GroupName": "Functions"
+                    },
+                    {
+                      "Key": "AddButtonText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "Edit",
+                      "ValueType": "Boolean",
+                      "Value": true,
+                      "Describtion": "",
+                      "GroupName": "Functions"
+                    },
+                    {
+                      "Key": "EditButtonText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "Delete",
+                      "ValueType": "Boolean",
+                      "Value": true,
+                      "Describtion": "",
+                      "GroupName": "Functions"
+                    },
+                    {
+                      "Key": "DeleteButtonText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "SaveButtonText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "CancelButtonText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "DeleteMessageText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "DeleteMessageTitle",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "GridRowDeletedMessage",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "SaveMessageText",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "SaveMessageTitle",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "GridRowNotSelectedMessage",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Inteface settings"
+                    },
+                    {
+                      "Key": "InlineEditing",
+                      "ValueType": "Boolean",
+                      "Value": false,
+                      "Describtion": "",
+                      "GroupName": "Functions"
+                    },
+                    {
+                      "Key": "Properties",
+                      "ValueType": "List",
+                      "Value": [
+                        {
+                          "Key": "Name",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "ParentObjectNameSpace",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "ParentObjectPrimaryKeyName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "ParentObjectName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "CapitalizeNameSpace",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "SQLName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "Priority",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "SQLDataType",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "DataType",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "IsComputed",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "ControlType",
+                          "ValueType": "Enum",
+                          "Value": [
+                            {
+                              "Key": "Text",
+                              "Value": 0
+                            },
+                            {
+                              "Key": "Number",
+                              "Value": 1
+                            },
+                            {
+                              "Key": "Check",
+                              "Value": 2
+                            },
+                            {
+                              "Key": "Date",
+                              "Value": 3
+                            },
+                            {
+                              "Key": "File",
+                              "Value": 4
+                            },
+                            {
+                              "Key": "Amount",
+                              "Value": 5
+                            },
+                            {
+                              "Key": "Image",
+                              "Value": 6
+                            },
+                            {
+                              "Key": "Time",
+                              "Value": 7
+                            },
+                            {
+                              "Key": "Password",
+                              "Value": 8
+                            },
+                            {
+                              "Key": "Search",
+                              "Value": 9
+                            },
+                            {
+                              "Key": "Editor",
+                              "Value": 10
+                            },
+                            {
+                              "Key": "EnumRadio",
+                              "Value": 11
+                            },
+                            {
+                              "Key": "EnumCombo",
+                              "Value": 12
+                            },
+                            {
+                              "Key": "Email",
+                              "Value": 13
+                            },
+                            {
+                              "Key": "Color",
+                              "Value": 14
+                            },
+                            {
+                              "Key": "Tel",
+                              "Value": 15
+                            },
+                            {
+                              "Key": "Url",
+                              "Value": 16
+                            },
+                            {
+                              "Key": "NationalCode",
+                              "Value": 17
+                            },
+                            {
+                              "Key": "IP",
+                              "Value": 18
+                            },
+                            {
+                              "Key": "Desciption",
+                              "Value": 19
+                            },
+                            {
+                              "Key": "EnumCheck",
+                              "Value": 20
+                            }
+                          ],
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "Check",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "MaxLength",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "Lookups",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "Visible",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "ReadOnly",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "Optional",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "Sort",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "Default",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "EnumItems",
+                          "ValueType": "List",
+                          "Value": [
+                            {
+                              "Key": "Name",
+                              "ValueType": "String",
+                              "Value": "",
+                              "Describtion": "",
+                              "GroupName": ""
+                            },
+                            {
+                              "Key": "Value",
+                              "ValueType": "String",
+                              "Value": "",
+                              "Describtion": "",
+                              "GroupName": ""
+                            }
+                          ],
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "Attributes",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "DefaultAtClient",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User inteface settings"
+                        },
+                        {
+                          "Key": "Nullable",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Database Metadata"
+                        },
+                        {
+                          "Key": "InTitleLocation",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "Min",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "Max",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        },
+                        {
+                          "Key": "InGrid",
+                          "ValueType": "Boolean",
+                          "Value": true,
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "InLookup",
+                          "ValueType": "Boolean",
+                          "Value": true,
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "DisplayName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "ColumnIndex",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "ColumnSpan",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "RowIndex",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        },
+                        {
+                          "Key": "RowSpan",
+                          "ValueType": "Int32",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "User Inteface Design"
+                        }
+                      ],
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    },
+                    {
+                      "Key": "Relations",
+                      "ValueType": "List",
+                      "Value": [
+                        {
+                          "Key": "Name",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "RefrenceObjectName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "RefrenceObjectId",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "RefrenceObjectSchemaName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "RefrencePropertyName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "ParentObjectName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "ParentObjectSchemaName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "ParentColumnName",
+                          "ValueType": "String",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": ""
+                        }
+                      ],
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    },
+                    {
+                      "Key": "Description",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "Path",
+                      "ValueType": "String",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "Database Metadata"
+                    },
+                    {
+                      "Key": "Visible",
+                      "ValueType": "Boolean",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "VisibleForm",
+                      "ValueType": "Boolean",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "ColumnOfForm",
+                      "ValueType": "Int32",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "RowOfForm",
+                      "ValueType": "Int32",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "Layout",
+                      "ValueType": "Enum",
+                      "Value": [
+                        {
+                          "Key": "None",
+                          "Value": 0
+                        },
+                        {
+                          "Key": "OneColumn",
+                          "Value": 1
+                        },
+                        {
+                          "Key": "TwoColumn",
+                          "Value": 2
+                        },
+                        {
+                          "Key": "ThreeColumn",
+                          "Value": 3
+                        },
+                        {
+                          "Key": "FourColumn",
+                          "Value": 4
+                        }
+                      ],
+                      "Describtion": "",
+                      "GroupName": "User Interface Settings"
+                    },
+                    {
+                      "Key": "MasterForm",
+                      "ValueType": "Boolean",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    },
+                    {
+                      "Key": "MasterFormTypes",
+                      "ValueType": "List",
+                      "Value": [
+                        {
+                          "Key": "Type",
+                          "ValueType": "MasterFormTypes",
+                          "Value": [
+                            {
+                              "Key": "Name",
+                              "ValueType": "String",
+                              "Value": "",
+                              "Describtion": "",
+                              "GroupName": ""
+                            }
+                          ],
+                          "Describtion": "",
+                          "GroupName": ""
+                        },
+                        {
+                          "Key": "Value",
+                          "ValueType": "Boolean",
+                          "Value": "",
+                          "Describtion": "",
+                          "GroupName": "Misc"
+                        }
+                      ],
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    },
+                    {
+                      "Key": "ParentModule",
+                      "ValueType": "Int32",
+                      "Value": "",
+                      "Describtion": "",
+                      "GroupName": "Misc"
+                    }
+                  ],
+                  "Describtion": "",
+                  "GroupName": ""
+                }
+              ],
+              "Describtion": "",
+              "GroupName": ""
+            }
+          ],
+          "Describtion": "",
+          "GroupName": ""
+        }
+      }
+    ]
+  }
+}

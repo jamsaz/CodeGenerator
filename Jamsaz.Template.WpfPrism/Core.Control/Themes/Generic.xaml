@@ -1,0 +1,223 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:$safeprojectname$"
+    xmlns:menu="clr-namespace:$safeprojectname$.Menues"
+    xmlns:formFields="clr-namespace:$safeprojectname$.FormFields"
+    xmlns:treeView="clr-namespace:$safeprojectname$.FormFields.TreeView"
+    xmlns:dialog="clr-namespace:$safeprojectname$.Dialog"
+    xmlns:selectForm="clr-namespace:$safeprojectname$.FormFields.SelectForm"
+    xmlns:controls="http://schemas.hightech.ir/wpf/2008/FarsiLibrary"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:listview="clr-namespace:$safeprojectname$.FormFields.ListView">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/$safeprojectname$;Component/Themes/GridComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/$safeprojectname$;Component/Themes/GridView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/$safeprojectname$;Component/Themes/CheckBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="{x:Type local:Form}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Form}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type menu:Menu}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type menu:Menu}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type formFields:Field}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type formFields:Field}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="10" />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="Label" Grid.Column="1" Grid.Row="1" Content="{TemplateBinding formFields:Field.LabelText}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <!--<StackPanel x:Name="FieldContainer" Grid.Column="2" Grid.Row="1">-->
+                            <ContentPresenter Grid.Column="2" Grid.Row="1" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"></ContentPresenter>
+                            <!--</StackPanel>-->
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type selectForm:SelectForm}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type selectForm:SelectForm}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="10" />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="Label" Grid.Column="1" Grid.Row="1" Content="{TemplateBinding selectForm:SelectForm.LabelText}" ></Label>
+                            <StackPanel x:Name="FieldContainer" Grid.Column="2" Grid.Row="1">
+                                <Grid x:Name="PART_GridContent" Visibility="Hidden">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type dialog:Dialog}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type dialog:Dialog}">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"></ContentPresenter>
+                            <StackPanel x:Name="PART_ButtonsContainer" Orientation="Horizontal" Grid.Row="1">
+                                
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type formFields:DatePicker}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type formFields:DatePicker}">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <controls:FXDatePicker x:Name="PART_DatePicker" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <listview:ListViewCheckCommandParameterConverter x:Key="MultiItemConverter" />
+    <Style TargetType="{x:Type listview:RadioButtonList}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type listview:RadioButtonList}">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <telerik:RadListBox x:Name="PART_RadListBox" >
+                            <telerik:RadListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <formFields:RadioButton x:Name="PART_RadioButton" Tag="{Binding Value}" IsChecked="{Binding IsSelected}" Content="{Binding Content}" GroupName="RadRadioGroup" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding Checked}">
+                                                    <i:InvokeCommandAction.CommandParameter>
+                                                        <MultiBinding Converter="{StaticResource MultiItemConverter}">
+                                                            <Binding ElementName="PART_RadListBox" />
+                                                            <Binding ElementName="PART_RadioButton" />
+                                                        </MultiBinding>
+                                                    </i:InvokeCommandAction.CommandParameter>
+                                                </i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </formFields:RadioButton>
+                                </DataTemplate>
+                            </telerik:RadListBox.ItemTemplate>
+                        </telerik:RadListBox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type listview:CheckBoxList}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type listview:CheckBoxList}">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <telerik:RadListBox x:Name="PART_RadListBox" >
+                            <telerik:RadListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <formFields:CheckBox x:Name="PART_Checkbox" Tag="{Binding Value}" IsChecked="{Binding IsSelected}" Content="{Binding Content}" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding Checked}">
+                                                    <i:InvokeCommandAction.CommandParameter>
+                                                        <MultiBinding Converter="{StaticResource MultiItemConverter}">
+                                                            <Binding ElementName="PART_RadListBox" />
+                                                            <Binding ElementName="PART_Checkbox" />
+                                                        </MultiBinding>
+                                                    </i:InvokeCommandAction.CommandParameter>
+                                                </i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </formFields:CheckBox>
+                                </DataTemplate>
+                            </telerik:RadListBox.ItemTemplate>
+                        </telerik:RadListBox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <HierarchicalDataTemplate x:Key="ParentItems">
+        <TextBlock Text="{Binding Content}" Tag="{Binding Value}"/>
+    </HierarchicalDataTemplate>
+    <Style TargetType="{x:Type treeView:TreeView}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type treeView:TreeView}">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <StackPanel Orientation="Vertical">
+                            <telerik:RadTreeView x:Name="PART_RadTreeView">
+                                <telerik:RadTreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate  ItemsSource="{Binding Children}">
+                                        <TextBlock Text="{Binding Content}" Tag="{Binding Value}"/>
+                                    </HierarchicalDataTemplate>
+                                </telerik:RadTreeView.ItemTemplate>
+                            </telerik:RadTreeView>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

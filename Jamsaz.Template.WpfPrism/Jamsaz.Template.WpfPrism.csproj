@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>14.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{5BD9916D-1F3B-400B-BC04-A1422E98A0E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jamsaz.Template.WpfPrism</RootNamespace>
+    <AssemblyName>Jamsaz.Template.WpfPrism</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <DeployExtension>false</DeployExtension>
+    <DeployVSTemplates>false</DeployVSTemplates>
+    <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CoreUtility">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="MyTemplate.vstemplate" />
+    <VSTemplate Include="Core\Template.Core.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
+    <Content Include="Core.Control\Core.Control.vstemplate">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Core.Control\Lib\FarsiLibrary.Localization.dll" />
+    <Content Include="Core.Control\Lib\FarsiLibrary.Utils.dll" />
+    <Content Include="Core.Control\Lib\FarsiLibrary.WPF.dll" />
+    <Content Include="Core.Control\Template.Core.Controls.csproj">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Core.Control\__TemplateIcon.ico" />
+    <Content Include="Core\Template.Core.csproj">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Core\__TemplateIcon.ico" />
+    <VSTemplate Include="Shell\Shell.vstemplate" />
+    <VSTemplate Include="Shared\Template.Core.SharedModel.vstemplate" />
+    <Content Include="NavigationMenuModule\Template.Modules.Navigation.csproj" />
+    <VSTemplate Include="NavigationMenuModule\Template.Modules.Navigation.vstemplate" />
+    <Content Include="NavigationMenuModule\__TemplateIcon.ico" />
+    <Content Include="Repository.Interface\Template.Repository.Interface.csproj" />
+    <VSTemplate Include="Repository.Interface\Template.Repository.Interface.vstemplate" />
+    <Content Include="Repository.Interface\__TemplateIcon.ico" />
+    <Content Include="Repository.SQL\Template.Repository.SQL.csproj" />
+    <VSTemplate Include="Repository.SQL\Template.Repository.SQL.vstemplate" />
+    <Content Include="Repository.SQL\__TemplateIcon.ico" />
+    <Content Include="Shared\Template.Core.SharedModel.csproj" />
+    <Content Include="Shared\__TemplateIcon.ico" />
+    <Content Include="Shell\Template.Shell.csproj" />
+    <Content Include="Shell\__TemplateIcon.ico" />
+    <Content Include="Template\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Content>
+    <Content Include="Template\Bootstrapper.cs" />
+    <Content Include="Template\Configuration.cs" />
+    <Content Include="Template\query.sql" />
+    <Content Include="ViewModules\Template.Modules.Views.csproj" />
+    <VSTemplate Include="ViewModules\Template.Modules.Views.vstemplate" />
+    <Content Include="ViewModules\__TemplateIcon.ico" />
+    <Content Include="__TemplateIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="Template\Template.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
+    <Content Include="Template\Template.csproj" />
+    <Content Include="Template\__TemplateIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\App.config" />
+    <Content Include="Template\config.json" />
+    <Content Include="Template\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\Properties\AssemblyInfo.cs" />
+    <Content Include="Template\Properties\Resources.Designer.cs" />
+    <Content Include="Template\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Properties\AssemblyInfo.cs" />
+    <Content Include="Core\Properties\Resources.Designer.cs" />
+    <Content Include="Core\Properties\Settings.Designer.cs" />
+    <Content Include="Core\Services\EventAggregatorService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\packages.config" />
+    <Content Include="Core\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NavigationMenuModule\ViewModels\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Shared\Models\" />
+    <Folder Include="Template\GeneratorMethods\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Prism.Core.6.1.0.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shell\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shell\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Content>
+    <Content Include="Shell\Prism\DockingAdapter.cs" />
+    <Content Include="Shell\Prism\PanelBarAdapter.cs" />
+    <Content Include="Shell\Properties\AssemblyInfo.cs" />
+    <Content Include="Shell\Properties\Resources.Designer.cs" />
+    <Content Include="Shell\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shell\packages.config" />
+    <Content Include="Shell\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shell\Properties\Licenses.licx" />
+    <Content Include="Shell\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\Dialog\Dialog.cs" />
+    <Content Include="Core.Control\Dialog\DialogButton.cs" />
+    <Content Include="Core.Control\Dialog\DialogButtonCollection.cs" />
+    <Content Include="Core.Control\Form.cs" />
+    <Content Include="Core.Control\FormFields\CheckBox.cs" />
+    <Content Include="Core.Control\FormFields\ComboBox\ComboBox.cs" />
+    <Content Include="Core.Control\FormFields\ComboBox\GridComboBox.cs" />
+    <Content Include="Core.Control\FormFields\DatePicker.cs" />
+    <Content Include="Core.Control\FormFields\Field.cs" />
+    <Content Include="Core.Control\FormFields\FieldTypes.cs" />
+    <Content Include="Core.Control\FormFields\RadioButton.cs" />
+    <Content Include="Core.Control\FormFields\SelectForm\SelectForm.cs" />
+    <Content Include="Core.Control\FormFields\SelectForm\SelectFormButtonCommand.cs" />
+    <Content Include="Core.Control\FormFields\SelectForm\SelectFormField.cs" />
+    <Content Include="Core.Control\FormFields\SelectForm\SelectFormFieldTypes.cs" />
+    <Content Include="Core.Control\GridView\ButtonCommand.cs" />
+    <Content Include="Core.Control\GridView\Export.cs" />
+    <Content Include="Core.Control\GridView\GridView.cs" />
+    <Content Include="Core.Control\GridView\GridViewButton.cs" />
+    <Content Include="Core.Control\GridView\GridViewButtonCollection.cs" />
+    <Content Include="Core.Control\GridView\GridViewButtonCommandParameter.cs" />
+    <Content Include="Core.Control\GridView\GridViewButtonTypes.cs" />
+    <Content Include="Core.Control\GridView\GridViewColumn.cs" />
+    <Content Include="Core.Control\GridView\GridViewColumnCollection.cs" />
+    <Content Include="Core.Control\GridView\GridViewColumnTypes.cs" />
+    <Content Include="Core.Control\GridView\GridViewExportTypes.cs" />
+    <Content Include="Core.Control\GridView\GridViewSetting.cs" />
+    <Content Include="Core.Control\Menues\Menu.cs" />
+    <Content Include="Core.Control\Menues\MenuItem.cs" />
+    <Content Include="Core.Control\Menues\MenuItemCollection.cs" />
+    <Content Include="Core.Control\Properties\AssemblyInfo.cs" />
+    <Content Include="Core.Control\Properties\Resources.Designer.cs" />
+    <Content Include="Core.Control\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Core.Control\Themes\GridComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Core.Control\Themes\GridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shared\IModel.cs" />
+    <Content Include="Shared\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repository.SQL\App.config" />
+    <Content Include="Repository.SQL\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repository.SQL\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repository.Interface\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NavigationMenuModule\Common\ViewComparer.cs" />
+    <Content Include="NavigationMenuModule\NavigationModule.cs" />
+    <Content Include="NavigationMenuModule\Properties\AssemblyInfo.cs" />
+    <Content Include="NavigationMenuModule\Properties\Resources.Designer.cs" />
+    <Content Include="NavigationMenuModule\Properties\Settings.Designer.cs" />
+    <Content Include="NavigationMenuModule\Views\PanelBar.xaml.cs">
+      <DependentUpon>PanelBar.xaml</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NavigationMenuModule\packages.config" />
+    <Content Include="NavigationMenuModule\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NavigationMenuModule\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NavigationMenuModule\Views\PanelBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\FormFields\CheckBoxList.cs" />
+    <Content Include="Core.Control\FormFields\ColorPicker.cs" />
+    <Content Include="Core.Control\FormFields\InputType.cs" />
+    <Content Include="Core.Control\FormFields\ListObjectSelectionModes.cs" />
+    <Content Include="Core.Control\FormFields\TextBox.cs" />
+    <Content Include="Core.Control\FormFields\Behaviors\EmailTextBoxBehavior.cs" />
+    <Content Include="Core.Control\FormFields\Behaviors\NumericTextBoxBehavior.cs" />
+    <Content Include="Core.Control\FormFields\ListView\CheckBoxList.cs" />
+    <Content Include="Core.Control\FormFields\ListView\ListView.cs" />
+    <Content Include="Core.Control\FormFields\ListView\ListViewItem.cs" />
+    <Content Include="Core.Control\FormFields\ListView\RadioButtonList.cs" />
+    <Content Include="Core.Control\FormFields\ListView\ListViewCheckCommandParameterConverter.cs" />
+    <Content Include="Core.Control\FormFields\TreeView\TreeView.cs" />
+    <Content Include="Core.Control\FormFields\TreeView\TreeViewItem.cs" />
+    <Compile Include="NavigationMenuModule\Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Content Include="ViewModules\MainModule.cs" />
+    <Content Include="ViewModules\Properties\AssemblyInfo.cs" />
+    <Content Include="ViewModules\Properties\Resources.Designer.cs" />
+    <Content Include="ViewModules\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ViewModules\packages.config" />
+    <Content Include="ViewModules\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ViewModules\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core.Control\Themes\CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

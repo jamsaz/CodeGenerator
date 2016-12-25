@@ -1,0 +1,54 @@
+﻿using System.Data.Entity.Core.Objects;
+{{#newline}}
+using System.Data.Entity.Infrastructure;
+{{#newline}}
+using System.Data.SqlClient;
+{{#newline}}
+using System;
+{{#newline}}
+using System.Data.Entity;
+{{#newline}}
+using System.ComponentModel.DataAnnotations.Schema;
+{{#newline}}
+using System.Linq;
+{{#newline}}
+using SharedModels = {{CapitalizedName}}.Core.SharedModel.Models;
+{{#newline}}
+{{#newline}}
+
+namespace {{CapitalizedName}}.Repository.SQL.Model
+{{#newline}}
+{
+{{#newline}}
+    public partial class DataContext : DbContext
+{{#newline}}
+    {
+{{#newline}}
+        public DataContext(): base("name=Datacontext")
+{{#newline}}
+        {
+{{#newline}}
+        }
+{{#newline}}
+{{#each Objects}}
+        public virtual DbSet<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}> {{PluralizedName}} { get; set; }
+{{#newline}}
+{{#newline}}
+{{/each}}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+{{#newline}}
+        {
+{{#newline}}
+{{#each CompositeObjects}}
+            modelBuilder.Entity<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}>().Ignore(c => c.IsDirty);
+{{#newline}}
+            modelBuilder.Entity<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}>().Ignore(c => c.IsDeleted);
+{{#newline}}
+{{#newline}}
+{{/each}}
+        }    
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

@@ -1,0 +1,15 @@
+D:\CodeGenerator\Template\Jamsaz.Template.Module\bin\Debug\ProjectTemplates\CSharp\1033\Template.Module.zip
+D:\CodeGenerator\Template\Jamsaz.Template.Module\obj\Debug\CSharp\1033\Template.Module.zip
+D:\CodeGenerator\Template\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.dll
+D:\CodeGenerator\Template\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.pdb
+D:\CodeGenerator\Template\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.csprojResolveAssemblyReference.cache
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.Template.Module\bin\Debug\ProjectTemplates\CSharp\1033\Template.Module.zip
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\CSharp\1033\Template.Module.zip
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.csprojResolveAssemblyReference.cache
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.Template.Module\bin\Debug\ProjectTemplates\CSharp\1033\Template.Module.zip
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.csprojResolveAssemblyReference.cache
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\CSharp\1033\Template.Module.zip
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.dll
+C:\Github_JamsazProjects\Jamsaz.CodeGenerator\Jamsaz.Template.Module\obj\Debug\Jamsaz.Template.Module.pdb

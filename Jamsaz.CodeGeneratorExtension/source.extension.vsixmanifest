@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="Jamsaz.CodeGeneratorExtension.Company.c510d357-f5c5-4194-a488-9516bff3ea02" Version="1.0" Language="en-US" Publisher="Jamsaz" />
+    <DisplayName>Jamsaz.CodeGeneratorExtension</DisplayName>
+    <Description>Empty VSIX Project.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Jamsaz.Template.WpfPrism" d:TargetPath="|Jamsaz.Template.WpfPrism;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Jamsaz.Template.Wizard" Path="|Jamsaz.Template.Wizard|" AssemblyName="|Jamsaz.Template.Wizard;AssemblyName|" />
+    <Asset Type="Prism.MVVM.1.1.1.nupkg" d:Source="File" Path="Packages\Prism.Mvvm.1.1.1.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="CommonServiceLocator.1.3.nupkg" d:Source="File" Path="Packages\CommonServiceLocator.1.3.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Microsoft.SqlServer.Smo.dll.1.0.1.nupkg" d:Source="File" Path="Packages\Microsoft.SqlServer.Smo.dll.1.0.1.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Newtonsoft.Json.9.0.1.nupkg" d:Source="File" Path="Packages\Newtonsoft.Json.9.0.1.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Prism.Core.6.1.0.nupkg" d:Source="File" Path="Packages\Prism.Core.6.1.0.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Prism.Unity.6.1.1.nupkg" d:Source="File" Path="Packages\Prism.Unity.6.1.1.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Prism.Wpf.6.1.0.nupkg" d:Source="File" Path="Packages\Prism.Wpf.6.1.0.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Unity.4.0.1.nupkg" d:Source="File" Path="Packages\Unity.4.0.1.nupkg" d:VsixSubPath="Packages"/>
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="mustache-sharp.dll" AssemblyName="mustache-sharp, Version=0.2.8.1, Culture=neutral, PublicKeyToken=null" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Jamsaz.Template.Module" d:TargetPath="|Jamsaz.Template.Module;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Farsi.Library.WPF.2.6.0.nupkg" d:Source="File" Path="Packages\Farsi.Library.WPF.2.6.0.nupkg" />
+  </Assets>
+</PackageManifest>

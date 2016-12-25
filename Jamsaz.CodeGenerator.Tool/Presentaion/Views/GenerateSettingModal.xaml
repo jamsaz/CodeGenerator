@@ -1,0 +1,81 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Class="Jamsaz.CodeGenerator.Tool.Presentaion.Views.GenerateSettingModal"
+        mc:Ignorable="d"
+        Title="GenerateSetting" Height="600" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" x:Name="SettingModal">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <telerik:RadBusyIndicator IsBusy="{Binding IsBusy}" x:Name="BusyIndicator">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFECECEC" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Please Enter ..." Padding="10,10,10,18" Foreground="White">
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF24BAFF" Offset="0"/>
+                            <GradientStop Color="#FF1D9EDA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="TemplatePath" />
+                    <TextBox Grid.Row="0" Grid.Column="1"  Margin="0,0,42,0" IsReadOnly="True" Text="{Binding PathTextBox}"/>
+                    <telerik:RadButton Grid.Row="0" Grid.Column="1" Width="38" Height="29" Margin="580,0,0,0" Content=". . ." Command="{Binding BrowseCommand}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="TemplateItems" />
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadListBox  x:Name="TemplateItemsListBox" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDoubleClick">
+                                    <i:InvokeCommandAction Command="{Binding EditorCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </telerik:RadListBox>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <telerik:RadButton Content="Add" Margin="2,5,2,5" Command="{Binding AddTemplateCommand}"/>
+                            <telerik:RadButton Content="Remove" Margin="2,6,2,2" Command="{Binding RemoveTemplateCommand}"/>
+                        </StackPanel>
+                        <telerik:RadPropertyGrid Grid.Column="2"  SearchBoxVisibility="Hidden" 
+                                                 SortAndGroupButtonsVisibility="Hidden" DescriptionPanelVisibility="Hidden" 
+                                                 Item="{Binding SelectedItem, ElementName=TemplateItemsListBox}"/>
+                    </Grid>
+                    <telerik:RadButton Grid.Row="4" Grid.Column="1" Content="Save" Margin="5" Height="30" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=SettingModal}"/>
+                </Grid>
+            </Grid>
+        </telerik:RadBusyIndicator>
+    </Grid>
+</Window>

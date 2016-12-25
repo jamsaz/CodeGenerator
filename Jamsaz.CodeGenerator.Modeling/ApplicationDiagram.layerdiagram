@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="26d07fab-7df7-4633-9d22-0b8a32046a94" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="96bfc16e-7061-4b02-bcc0-dd0d3a6ac6f1" name="Presentaion&#xD;&#xA;">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3a3efeb4-78b2-4ce3-8858-4637ec42af49" direction="Forward">
+          <layerMoniker Id="46f5cfe6-0989-40dc-9cfd-92a52c0571d3" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="46f5cfe6-0989-40dc-9cfd-92a52c0571d3" name="BusinessLogic">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="376f8012-b16e-4e11-a1c9-83ad1c11ba5a" direction="Forward">
+          <layerMoniker Id="6a267253-3efe-4a20-a59b-4106c0bf8daa" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="6a267253-3efe-4a20-a59b-4106c0bf8daa" name="Data" />
+  </layers>
+</layerModel>

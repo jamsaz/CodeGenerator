@@ -1,0 +1,107 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Core.Controls</Name>
+    <Description>Core.Controls</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Core.Controls</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Template.Core.Controls.csproj" File="Template.Core.Controls.csproj" ReplaceParameters="true">
+      <Folder Name="Dialog" TargetFolderName="Dialog">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Dialog.cs">Dialog.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DialogButton.cs">DialogButton.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DialogButtonCollection.cs">DialogButtonCollection.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Form.cs">Form.cs</ProjectItem>
+      <Folder Name="FormFields" TargetFolderName="FormFields">
+        <Folder Name="Behaviors" TargetFolderName="Behaviors">
+          <ProjectItem ReplaceParameters="true" TargetFileName="EmailTextBoxBehavior.cs">EmailTextBoxBehavior.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="NumericTextBoxBehavior.cs">NumericTextBoxBehavior.cs</ProjectItem>
+        </Folder>
+        <Folder Name="ComboBox" TargetFolderName="ComboBox">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ComboBox.cs">ComboBox.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="GridComboBox.cs">GridComboBox.cs</ProjectItem>
+        </Folder>
+        <Folder Name="ListView" TargetFolderName="ListView">
+          <ProjectItem ReplaceParameters="true" TargetFileName="CheckBoxList.cs">CheckBoxList.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ListView.cs">ListView.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ListViewItem.cs">ListViewItem.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RadioButtonList.cs">RadioButtonList.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ListViewCheckCommandParameterConverter.cs">ListViewCheckCommandParameterConverter.cs</ProjectItem>
+        </Folder>
+        <Folder Name="SelectForm" TargetFolderName="SelectForm">
+          <ProjectItem ReplaceParameters="true" TargetFileName="SelectForm.cs">SelectForm.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="SelectFormButtonCommand.cs">SelectFormButtonCommand.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="SelectFormField.cs">SelectFormField.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="SelectFormFieldTypes.cs">SelectFormFieldTypes.cs</ProjectItem>
+        </Folder>
+        <Folder Name="TreeView" TargetFolderName="TreeView">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TreeView.cs">TreeView.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TreeViewItem.cs">TreeViewItem.cs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="CheckBox.cs">CheckBox.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="CheckBoxList.cs">CheckBoxList.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ColorPicker.cs">ColorPicker.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="InputType.cs">InputType.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DatePicker.cs">DatePicker.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Field.cs">Field.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="FieldTypes.cs">FieldTypes.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="RadioButton.cs">RadioButton.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ListObjectSelectionModes.cs">ListObjectSelectionModes.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TextBox.cs">TextBox.cs</ProjectItem>
+      </Folder>
+      <Folder Name="GridView" TargetFolderName="GridView">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ButtonCommand.cs">ButtonCommand.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Export.cs">Export.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridView.cs">GridView.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewButton.cs">GridViewButton.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewButtonCollection.cs">GridViewButtonCollection.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewButtonCommandParameter.cs">GridViewButtonCommandParameter.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewButtonTypes.cs">GridViewButtonTypes.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewColumn.cs">GridViewColumn.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewColumnCollection.cs">GridViewColumnCollection.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewColumnTypes.cs">GridViewColumnTypes.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewExportTypes.cs">GridViewExportTypes.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridViewSetting.cs">GridViewSetting.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Lib" TargetFolderName="Lib">
+        <ProjectItem ReplaceParameters="false" TargetFileName="FarsiLibrary.WPF.dll">FarsiLibrary.WPF.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="FarsiLibrary.Localization.dll">FarsiLibrary.Localization.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="FarsiLibrary.Utils.dll">FarsiLibrary.Utils.dll</ProjectItem>
+      </Folder>
+      <Folder Name="Menues" TargetFolderName="Menues">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Menu.cs">Menu.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MenuItem.cs">MenuItem.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MenuItemCollection.cs">MenuItemCollection.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Themes" TargetFolderName="Themes">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CheckBox.xaml">CheckBox.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Generic.xaml">Generic.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridComboBox.xaml">GridComboBox.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GridView.xaml">GridView.xaml</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Jamsaz.Template.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dfd74903e521b7f6</Assembly>
+    <FullClassName>Jamsaz.Template.Wizard.ChildWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>
+
+
+

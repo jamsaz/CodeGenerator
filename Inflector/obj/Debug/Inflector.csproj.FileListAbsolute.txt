@@ -1,0 +1,8 @@
+D:\CodeGenerator\Template\Inflector\bin\Debug\Inflector.dll
+D:\CodeGenerator\Template\Inflector\bin\Debug\Inflector.pdb
+D:\CodeGenerator\Template\Inflector\obj\Debug\Inflector.dll
+D:\CodeGenerator\Template\Inflector\obj\Debug\Inflector.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Inflector\bin\Debug\Inflector.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Inflector\bin\Debug\Inflector.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Inflector\obj\Debug\Inflector.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\Inflector\obj\Debug\Inflector.pdb

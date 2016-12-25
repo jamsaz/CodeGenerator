@@ -1,0 +1,13 @@
+D:\CodeGenerator\Template\mustache-sharp\bin\Debug\mustache-sharp.dll
+D:\CodeGenerator\Template\mustache-sharp\bin\Debug\mustache-sharp.pdb
+D:\CodeGenerator\Template\mustache-sharp\obj\Debug\Mustache.Properties.Resources.resources
+D:\CodeGenerator\Template\mustache-sharp\obj\Debug\mustache-sharp.csproj.GenerateResource.Cache
+D:\CodeGenerator\Template\mustache-sharp\obj\Debug\mustache-sharp.dll
+D:\CodeGenerator\Template\mustache-sharp\obj\Debug\mustache-sharp.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\bin\Debug\mustache-sharp.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\bin\Debug\mustache-sharp.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\obj\Debug\Mustache.Properties.Resources.resources
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\obj\Debug\mustache-sharp.csproj.GenerateResource.Cache
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\obj\Debug\mustache-sharp.dll
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\obj\Debug\mustache-sharp.pdb
+C:\JamsazERP\Main\Source\Jamsaz.CodeGenerator\Jamsaz.CodeGenerator\mustache-sharp\obj\Debug\mustache-sharp.csprojResolveAssemblyReference.cache

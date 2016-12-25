@@ -1,0 +1,35 @@
+﻿using System;
+{{#newline}}
+using System.Collections.Generic;
+{{#newline}}
+using SharedModels = {{ProjectName}}.Core.SharedModel.Models;
+{{#newline}}
+{{#newline}}
+
+namespace {{ProjectName}}.Repository.Interface.{{CapitalizedNameSpace}}
+{{#newline}}
+{
+{{#newline}}
+    public interface I{{SingularizedName}}Repository
+{{#newline}}
+    {
+{{#newline}}
+        IEnumerable<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}> GetAll(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}},bool> predicate = null);
+{{#newline}}
+{{#newline}}
+        SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} GetSingle(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}},bool> predicate);
+{{#newline}}
+{{#newline}}
+        SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} Create(SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} {{UnCapitalizedName}});
+{{#newline}}
+{{#newline}}
+        bool Update(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}},bool> predicate, SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} {{UnCapitalizedName}});
+{{#newline}}
+{{#newline}}
+        bool Delete(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}},bool> predicate);
+{{#newline}}
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}

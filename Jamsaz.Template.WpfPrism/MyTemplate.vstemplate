@@ -1,0 +1,50 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>Jamsaz.Template.WpfPrism</Name>
+    <Description>Jamsaz.Template.WpfPrism</Description>
+    <ProjectType>CSharp</ProjectType>
+    <TemplateGroupID>Jamsaz</TemplateGroupID>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Jamsaz.Template.WpfPrism</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$">
+        Template\Template.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Core">
+        Core\Template.Core.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Shell">
+        Shell\Shell.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Core.Controls">
+        Core.Control\Core.Control.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Core.SharedModel">
+        Shared\Template.Core.SharedModel.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Repository.SQL">
+        Repository.SQL\Template.Repository.SQL.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Repository.Interface">
+        Repository.Interface\Template.Repository.Interface.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Modules.Navigation">
+        NavigationMenuModule\Template.Modules.Navigation.vstemplate
+      </ProjectTemplateLink>
+      <!--<ProjectTemplateLink ProjectName="$safeprojectname$.Modules.Views">
+        ViewModules\Template.Modules.Views.vstemplate
+      </ProjectTemplateLink>-->
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Jamsaz.Template.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dfd74903e521b7f6</Assembly>
+    <FullClassName>Jamsaz.Template.Wizard.RootWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

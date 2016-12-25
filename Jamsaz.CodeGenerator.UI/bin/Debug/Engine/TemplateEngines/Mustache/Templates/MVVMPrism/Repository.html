@@ -1,0 +1,142 @@
+﻿using System;
+{{#newline}}
+using System.Collections.Generic;
+{{#newline}}
+using System.Linq;
+{{#newline}}
+using {{ProjectName}}.Repository.SQL.Model;
+{{#newline}}
+using IRepository = {{ProjectName}}.Repository.Interface;
+{{#newline}}
+using SharedModels = {{ProjectName}}.Core.SharedModel.Models;
+{{#newline}}
+{{#newline}}
+namespace {{ProjectName}}.Repository.SQL.{{CapitalizedNameSpace}}
+{{#newline}}
+{
+{{#newline}}
+    public class {{SingularizedName}}Repository : IRepository.{{CapitalizedNameSpace}}.I{{SingularizedName}}Repository
+{{#newline}}
+    {
+{{#newline}}
+        public {{SingularizedName}}Repository()
+{{#newline}}
+        {
+{{#newline}}
+        }
+{{#newline}}
+        public virtual IEnumerable<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}> GetAll(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}, bool> predicate = null)
+{{#newline}}
+        {
+{{#newline}}
+            using (var db = new DataContext())
+{{#newline}}
+            {
+{{#newline}}
+                if(predicate == null)
+{{#newline}}
+                    return db.{{PluralizedName}}.ToList();
+{{#newline}}
+                else
+{{#newline}}
+                  return db.{{PluralizedName}}.Where(predicate).ToList();  
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+        public virtual SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} GetSingle(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}, bool> predicate)
+{{#newline}}
+        {
+{{#newline}}
+            using (var db = new DataContext())
+{{#newline}}
+            {
+{{#newline}}
+                return db.{{PluralizedName}}.Where(predicate).SingleOrDefault();
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+        public virtual SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} Create(SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} {{UnCapitalizedName}})
+{{#newline}}
+        {
+{{#newline}}
+            using (var db = new DataContext())
+{{#newline}}
+            {
+{{#newline}}
+                var inserted = db.{{PluralizedName}}.Add({{UnCapitalizedName}});
+{{#newline}}
+                db.SaveChanges();
+{{#newline}}
+                return inserted;
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+        public virtual bool Update(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}, bool> predicate, SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}} {{UnCapitalizedName}})
+{{#newline}}
+        {
+{{#newline}}
+            using (var db = new DataContext())
+{{#newline}}
+            {
+{{#newline}}
+                var finded = db.{{PluralizedName}}.Where(predicate).SingleOrDefault();
+{{#newline}}
+                if (finded != null)
+{{#newline}}
+                {
+{{#newline}}
+{{#each Properties}}
+                    finded.{{Name}} = {{ParentUnCapitalizedName}}.{{Name}};
+{{#newline}}
+{{/each}}
+{{#newline}}
+                    db.SaveChanges();
+{{#newline}}
+                    return true;
+{{#newline}}
+                }
+{{#newline}}
+                return false;
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+        public virtual bool Delete(Func<SharedModels.{{CapitalizedNameSpace}}.{{SingularizedName}}, bool> predicate)
+{{#newline}}
+        {
+{{#newline}}
+            using (var db = new DataContext())
+{{#newline}}
+            {
+{{#newline}}
+                var finded = db.{{PluralizedName}}.Where(predicate).SingleOrDefault();
+{{#newline}}
+                if (finded != null)
+{{#newline}}
+                {
+{{#newline}}
+                    db.{{PluralizedName}}.Remove(finded);
+{{#newline}}
+                    db.SaveChanges();
+{{#newline}}
+                    return true;
+{{#newline}}
+                }
+{{#newline}}
+                return false;
+{{#newline}}
+            }
+{{#newline}}
+        }
+{{#newline}}
+    }
+{{#newline}}
+}
+{{#newline}}
